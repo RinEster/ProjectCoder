@@ -1,0 +1,233 @@
+﻿<Window x:Class="ProjectCoder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectCoder"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"     
+        Title="MainWindow" Height="500" Width="500" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="{x:Null}">
+    <Window.Resources>
+        <Storyboard x:Key="Storyboard1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-41.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-40.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-100.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="-170.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-170.917"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="-212.917"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-281.167"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="-339.667"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="32.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="102.75"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="104.417"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="158.417"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="218.417"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="274.667"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="2.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="4.244"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="4.261"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="3.211"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1.505"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0.042"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="2.556"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="4.318"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="4.36"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="3.01"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="1.51"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0.104"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Rectangle.RadiusY)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="9.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="2.077"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Rectangle.RadiusX)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="9.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="2.077"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Вход">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="Регистрация">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.9" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseDown" SourceName="textBlock">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid Height="500" Width="500">
+        <Rectangle Fill="#BFFFFFFF" HorizontalAlignment="Left" Height="350" Margin="100 60 0 0" Stroke="Black" VerticalAlignment="Top" Width="300" RadiusY="5" RadiusX="5"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="340" RadiusY="5" RadiusX="5" Margin="80,80,0,0" />
+        <Rectangle x:Name="rectangle" Fill="#FF26E0D8" HorizontalAlignment="Left" Height="80" Margin="380,111,0,0" RadiusY="9.5" RadiusX="9.5" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <TextBlock x:Name="textBlock" Text="+" Foreground="White" FontSize="60" Margin="400,105,0,0" />
+        <Grid x:Name="Вход" Margin="80,111,80,70">
+            <Ellipse Fill="#FF9BF3F0" HorizontalAlignment="Left" Height="85" Margin="60,234,0,0" VerticalAlignment="Top" Width="85"/>
+            <Ellipse Fill="#FF26E0D8" HorizontalAlignment="Left" Height="35" Margin="285,115,0,0" VerticalAlignment="Top" Width="35"/>
+            <Ellipse Fill="#FF75FFF9" HorizontalAlignment="Left" Height="76" Margin="0,207,0,0" VerticalAlignment="Top" Width="76"/>
+            <Ellipse Fill="#FFB7FFFC" HorizontalAlignment="Left" Height="129" Margin="211,190,0,0" VerticalAlignment="Top" Width="129"/>
+            <Rectangle Fill="#FF76F3EE" HorizontalAlignment="Left" Height="80" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="26"/>
+            <TextBlock HorizontalAlignment="Left" Height="57" Margin="31,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" FontSize="48" FontWeight="Bold" Text="ВХОД" Foreground="#FF76F3EE"/>
+            <TextBox x:Name="loginTextBox" 
+                     materialDesign:HintAssist.Hint="Логин"
+                     materialDesign:HintAssist.FloatingOffset="0,-20"
+                     FontFamily="SemiBold"
+                     CaretBrush="Black"
+                     HorizontalAlignment="Center" 
+                     Height="40" Margin="60,99,60,0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" Width="220" 
+                     BorderBrush="#FF0EB3BB" Background="{x:Null}" 
+                     Foreground="#BF000000" 
+                     SelectionBrush="#FF00D7B0" FontSize="16" BorderThickness="0,0,0,2">
+                <TextBox.Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="FontFamily" Value="SemiBold"/>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <TextBox x:Name="passwordPassBox" 
+                     materialDesign:HintAssist.Hint="Пароль"
+                     materialDesign:HintAssist.FloatingOffset="0,-20"
+                     HorizontalAlignment="Center" 
+                     Height="40" Margin="60,155,60,0" 
+                     TextWrapping="Wrap" 
+                     VerticalAlignment="Top" Width="220" 
+                     BorderBrush="#FF0EB3BB" Background="{x:Null}" 
+                     Foreground="#BF000000" SelectionBrush="#FF00D7B0" 
+                     FontSize="16" BorderThickness="0,0,0,2">
+                <TextBox.Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="FontFamily" Value="SemiBold"/>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+           
+            <Button Content="Войти"     
+                    Margin="75 210 75 0" 
+                    VerticalAlignment="Top" 
+                    Width="183"
+                    FontFamily="SemiBold" 
+                    FontSize="20"
+                    Foreground="White" Background="#FF26E0D8" 
+                    BorderThickness="0" 
+                    Height="50"
+                    x:Name="authenticationButton"
+                    Click="authenticationButton_Click" />
+           
+        </Grid>
+        <Grid x:Name="Регистрация" Margin="81.5,112,78.5,69" Visibility="Hidden">
+            <Ellipse Fill="#FF9BF3F0" HorizontalAlignment="Left" Height="85" Margin="60,234,0,0" VerticalAlignment="Top" Width="85"/>
+            <Ellipse Fill="#FF26E0D8" HorizontalAlignment="Left" Height="35" Margin="285,115,0,0" VerticalAlignment="Top" Width="35"/>
+            <Ellipse Fill="#FF75FFF9" HorizontalAlignment="Left" Height="76" Margin="0,207,0,0" VerticalAlignment="Top" Width="76"/>
+            <Ellipse Fill="#FFB7FFFC" HorizontalAlignment="Left" Height="129" Margin="211,190,0,0" VerticalAlignment="Top" Width="129"/>
+            <Rectangle Fill="#FF76F3EE" HorizontalAlignment="Left" Height="80" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="26"/>         
+            <TextBlock HorizontalAlignment="Left" Height="57" Margin="31,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" FontSize="40" FontWeight="Bold" Text="РЕГИСТРАЦИЯ" Foreground="#FF76F3EE"/>
+
+            <TextBox x:Name="loginRegTextBox"                      
+                     materialDesign:HintAssist.Hint="Логин"
+                     materialDesign:HintAssist.FloatingOffset="0,-20"
+                     FontFamily="SemiBold"
+                     CaretBrush="Black"
+                     HorizontalAlignment="Center" 
+                     Height="40" Margin="60,99,60,0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Top" Width="220" 
+                     BorderBrush="#FF0EB3BB" 
+                     Foreground="#BF000000" 
+                     SelectionBrush="#FF00D7B0" FontSize="16" BorderThickness="0,0,0,2"     
+                     Background="{x:Null}" >
+                <TextBox.Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="FontFamily" Value="SemiBold"/>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <TextBox x:Name="passRegPassBox" 
+                     materialDesign:HintAssist.Hint="Пароль"
+                     materialDesign:HintAssist.FloatingOffset="0,-20"
+                     HorizontalAlignment="Center"  Margin="60,144.333,60,0" 
+                     Height="40" 
+                     TextWrapping="Wrap" 
+                     VerticalAlignment="Top" Width="220" 
+                     BorderBrush="#FF0EB3BB" Background="{x:Null}" 
+                     Foreground="#BF000000" SelectionBrush="#FF00D7B0" 
+                     FontSize="16" BorderThickness="0,0,0,2">
+                <TextBox.Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="FontFamily" Value="SemiBold"/>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            
+
+
+            <Button Content="Зарегистрироваться"     
+                   
+                    Margin="60 250 60 0" 
+                    VerticalAlignment="Top" 
+                    Width="220"
+                    FontFamily="SemiBold" 
+                    FontSize="20"
+                    Foreground="White" Background="#FF26E0D8" 
+                    BorderThickness="0" 
+                    Height="50"
+                    x:Name="regButton"
+                    Click="regButton_Click"/>
+
+
+           <TextBox x:Name="passRegRepPassBox" 
+                     materialDesign:HintAssist.Hint="Повторите пароль"
+                     materialDesign:HintAssist.FloatingOffset="0,-20"
+                     HorizontalAlignment="Center"  
+                     Height="40"   Margin="60,189.733,60,0" 
+                     TextWrapping="Wrap" 
+                     VerticalAlignment="Top" Width="220" 
+                     BorderBrush="#FF0EB3BB" Background="{x:Null}" 
+                     Foreground="#BF000000" SelectionBrush="#FF00D7B0" 
+                     FontSize="16" BorderThickness="0,0,0,2">
+                <TextBox.Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="FontFamily" Value="SemiBold"/>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+
+        </Grid>
+
+    </Grid>
+</Window>
