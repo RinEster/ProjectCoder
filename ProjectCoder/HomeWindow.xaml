@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectCoder"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
-         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:Menu="clr-namespace:ProjectCoder.Utilities"
+        xmlns:vm="clr-namespace:ProjectCoder.ViewModel"
         mc:Ignorable="d"
         Title="HomeWindow" Height="600" Width="800"
         ResizeMode="NoResize" Topmost="True" WindowStyle="None"        
@@ -38,7 +40,7 @@
             <Setter Property="HasDropShadow" Value="True"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
-        
+
         <Style x:Key="tbStyle" TargetType="{x:Type ToggleButton}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -47,7 +49,7 @@
                                 BorderThickness="{TemplateBinding BorderThickness}"
                                 Background="{TemplateBinding Background}"
                                 SnapsToDevicePixels="True">
-                            
+
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -72,6 +74,10 @@
             </Setter>
         </Style>
     </Window.Resources>
+
+    <Window.DataContext>
+        <vm:NavigationVM/>
+    </Window.DataContext>
     <Grid>
 
         <Grid Background="Black">
@@ -81,10 +87,14 @@
                   HorizontalAlignment="Left"
                   Width="65"
                   Background="#2e333a">
-
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="63*"/>
+                    <ColumnDefinition Width="*"/>
+                    
+                </Grid.ColumnDefinitions>
                 <StackPanel x:Name="stPanel">
 
-                    <Grid Height="90">
+                    <Grid  Grid.Column="0" Height="90">
 
 
                         <TextBlock Grid.Row="1"
@@ -103,8 +113,8 @@
                                                   Direction="-90" Color="White"/>
                             </TextBlock.Effect>
                         </TextBlock>
-                        
-                        
+
+
                         <ToggleButton x:Name="tgButton"
                                       Grid.Column="0"
                                       VerticalAlignment="Center"
@@ -117,11 +127,11 @@
                                 <ControlTemplate TargetType="ToggleButton">
                                     <Grid>
                                         <Image Source="Assets/tgBtn_default.png"
-                                           Stretch="None"/> 
+                                           Stretch="None"/>
                                     </Grid>
                                 </ControlTemplate>
                             </ToggleButton.Template>
-                          
+
 
                             <ToggleButton.Triggers>
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
@@ -133,7 +143,7 @@
                                                 BeginTime="0:0:0"
                                                 From="230" To="65"
                                                 Duration="0:0:0.2">
-                                                
+
                                             </DoubleAnimation>
                                         </Storyboard>
                                     </BeginStoryboard>
@@ -160,7 +170,8 @@
                     <ListView x:Name="listView"
                               Background="Transparent"
                               BorderBrush ="Transparent"
-                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                              Grid.Column="0">
                         <!--Главная-->
                         <ListViewItem HorizontalAlignment="Left"
                                       Margin="0 0 0 15"
@@ -179,7 +190,7 @@
                                 <ToolTip x:Name="ttHome"
                                          Content="Home"
                                          Style="{StaticResource toolTipStyle}"/>
-                            </ListViewItem.ToolTip>         
+                            </ListViewItem.ToolTip>
                         </ListViewItem>
                         <!--Профиль-->
                         <ListViewItem HorizontalAlignment="Left"
@@ -220,15 +231,24 @@
                             </ListViewItem.ToolTip>
                         </ListViewItem>
                         <!--Настройки-->
-                        <ListViewItem HorizontalAlignment="Left"
+                     
+                            <ListViewItem HorizontalAlignment="Left"
                                       Margin="0 0 0 15" MouseEnter="ListViewItem_MouseEnter">
-                            <StackPanel Orientation="Horizontal"
+                          
+                                <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                <Image Source="Assets/settings.png" 
+                                <Button Background="Transparent" BorderBrush="Transparent"
+                                        Height="45" x:Name="settingsButton" Click="settingsButton_Click">
+                                <Button.Content>
+                                        <Image Source="Assets/settings.png" 
                                        Stretch="None"
-                                       Margin="12 0 0 0"/>
+                                       Margin="-7 0 0 0"/>
+                                    </Button.Content>
+
+                                </Button>
+                                
                                 <TextBlock Text="Настройки"
-                                           Margin="25 0 0 0"
+                                           Margin="15 0 0 0"
                                            Style="{StaticResource font_style}"/>
                             </StackPanel>
 
@@ -238,6 +258,7 @@
                                          Style="{StaticResource toolTipStyle}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
+                        
                         <!--Выход-->
                         <ListViewItem HorizontalAlignment="Left"                                      
                                       Margin="0 190 0 15" 
@@ -247,11 +268,11 @@
                                 <Button Background="Transparent" BorderBrush="Transparent"
                                         Height="45" x:Name="exitButton" Click="exitButton_Click">
                                     <Button.Content>
-                                      <Image Source="Assets/exit.png" 
+                                        <Image Source="Assets/exit.png" 
                                        Stretch="None"
                                              Margin="-7 0 0 0"/>
                                     </Button.Content>
-                                
+
                                 </Button>
                                 <TextBlock Text="Выход"
                                            Margin="15 0 0 0"
@@ -313,13 +334,23 @@
                                 </Setter>
                             </Style>
                         </ListView.ItemContainerStyle>
-                        
+
                     </ListView>
-                    
-                    
+
+
                 </StackPanel>
-                
+
+                <Grid Grid.Column="1" x:Name="Pages">                  
+                    <ContentControl
+                                Content="{Binding CurrentView}" Margin="0,0,-735,0" />
+
+                </Grid>
             </Grid>
+
+
+
+
+
         </Grid>
     </Grid>
 </Window>

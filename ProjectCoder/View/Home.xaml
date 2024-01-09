@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="ProjectCoder.View.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjectCoder.View"
+             xmlns:vm="clr-namespace:ProjectCoder.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="500" Background="White">
+    <UserControl.DataContext>
+        <vm:HomeVM />
+    </UserControl.DataContext>
+    <Grid>
+        <Border Background="#dabdab"
+            CornerRadius="20">
+            <Grid>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <ContentControl  Grid.Row="1"
+                            Margin="10"
+                            Content="{Binding CurrentView}"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

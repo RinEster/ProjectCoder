@@ -11,7 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using ProjectCoder.Utilities;
+using ProjectCoder.ViewModel;
+using ProjectCoder.View;
 namespace ProjectCoder
 {
     /// <summary>
@@ -48,5 +50,17 @@ namespace ProjectCoder
                 ttExit.Visibility = Visibility.Visible;                
             }
         }
+
+        private void settingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Settings settings = new Settings();
+            settings.Width = 400;
+            settings.Margin = new Thickness(0, 0, -735, 0);
+            Pages.Children.Add(settings);
+
+           
+        }
     }
+   
+    
 }
