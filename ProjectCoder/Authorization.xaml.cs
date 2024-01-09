@@ -29,12 +29,14 @@ namespace ProjectCoder
         {
             HomeWindow homeWindow = new HomeWindow();
             homeWindow.Show();
+            Close();
         }
 
         private void regButton_Click(object sender, RoutedEventArgs e)
         {
             HomeWindow homeWindow = new HomeWindow();
             homeWindow.Show();
+            Close();
         }
     }
 }
