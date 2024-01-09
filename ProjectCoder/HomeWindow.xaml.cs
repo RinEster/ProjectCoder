@@ -60,6 +60,14 @@ namespace ProjectCoder
 
            
         }
+
+        private void userButton_Click(object sender, RoutedEventArgs e)
+        {
+            User user = new User();
+            user.Width = 400;
+            user.Margin = new Thickness(0, 0, -735, 0);
+            Pages.Children.Add(user);
+        }
     }
    
     

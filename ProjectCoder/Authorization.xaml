@@ -70,10 +70,55 @@
                 <DiscreteObjectKeyFrame KeyTime="0:0:1" Value="{x:Static Visibility.Hidden}"/>
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
+        <Storyboard x:Key="Autorization">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle1">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="rectangle1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1.356"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1.833"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="rectangle1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="2.833"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="4.305"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="4.972"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="6.889"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="9"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0.75"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="rectangle1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="-49.5"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-89.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-107.25"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="-102"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Rectangle.RadiusX)" Storyboard.TargetName="rectangle1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="3.57"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Rectangle.RadiusY)" Storyboard.TargetName="rectangle1">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="3.57"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="textBlock">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.2" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-27"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-42"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-3"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-4.5"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Window.Resources>
     <Window.Triggers>
         <EventTrigger RoutedEvent="UIElement.MouseDown" SourceName="textBlock">
             <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="authenticationButton">
+            <BeginStoryboard Storyboard="{StaticResource Autorization}"/>
         </EventTrigger>
     </Window.Triggers>
     <Grid Height="500" Width="500">
@@ -133,7 +178,7 @@
                     </Style>
                 </TextBox.Style>
             </TextBox>
-           
+
             <Button Content="Войти"     
                     Margin="75 210 75 0" 
                     VerticalAlignment="Top" 
@@ -145,14 +190,24 @@
                     Height="50"
                     x:Name="authenticationButton"
                     Click="authenticationButton_Click" />
-           
+            <Rectangle x:Name="rectangle1" Fill="#FF26E0D8" HorizontalAlignment="Left" Height="54" Margin="76,210,0,0" Stroke="#FF26E0D8" VerticalAlignment="Top" Width="185.5" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
         </Grid>
         <Grid x:Name="Регистрация" Margin="81.5,112,78.5,69" Visibility="Hidden">
             <Ellipse Fill="#FF9BF3F0" HorizontalAlignment="Left" Height="85" Margin="60,234,0,0" VerticalAlignment="Top" Width="85"/>
             <Ellipse Fill="#FF26E0D8" HorizontalAlignment="Left" Height="35" Margin="285,115,0,0" VerticalAlignment="Top" Width="35"/>
             <Ellipse Fill="#FF75FFF9" HorizontalAlignment="Left" Height="76" Margin="0,207,0,0" VerticalAlignment="Top" Width="76"/>
             <Ellipse Fill="#FFB7FFFC" HorizontalAlignment="Left" Height="129" Margin="211,190,0,0" VerticalAlignment="Top" Width="129"/>
-            <Rectangle Fill="#FF76F3EE" HorizontalAlignment="Left" Height="80" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="26"/>         
+            <Rectangle Fill="#FF76F3EE" HorizontalAlignment="Left" Height="80" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="26"/>
             <TextBlock HorizontalAlignment="Left" Height="57" Margin="31,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" FontSize="40" FontWeight="Bold" Text="РЕГИСТРАЦИЯ" Foreground="#FF76F3EE"/>
 
             <TextBox x:Name="loginRegTextBox"                      
@@ -192,7 +247,7 @@
                     </Style>
                 </TextBox.Style>
             </TextBox>
-            
+
 
 
             <Button Content="Зарегистрироваться"     
@@ -209,7 +264,7 @@
                     Click="regButton_Click"/>
 
 
-           <TextBox x:Name="passRegRepPassBox" 
+            <TextBox x:Name="passRegRepPassBox" 
                      materialDesign:HintAssist.Hint="Повторите пароль"
                      materialDesign:HintAssist.FloatingOffset="0,-20"
                      HorizontalAlignment="Center"  
