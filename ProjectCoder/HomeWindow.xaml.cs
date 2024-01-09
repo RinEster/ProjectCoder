@@ -28,5 +28,25 @@ namespace ProjectCoder
         {
             Close();
         }
+        private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
+        {          
+
+            if (tgButton.IsChecked == true)
+            {
+                ttHome.Visibility = Visibility.Collapsed;
+                ttUser.Visibility = Visibility.Collapsed;
+                ttCourses.Visibility = Visibility.Collapsed;
+                ttSettings.Visibility = Visibility.Collapsed;
+                ttExit.Visibility = Visibility.Collapsed;              
+            }
+            else
+            {
+                ttHome.Visibility = Visibility.Visible;
+                ttUser.Visibility = Visibility.Visible;
+                ttCourses.Visibility = Visibility.Visible;
+                ttSettings.Visibility = Visibility.Visible;
+                ttExit.Visibility = Visibility.Visible;                
+            }
+        }
     }
 }
