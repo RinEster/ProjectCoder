@@ -9,7 +9,7 @@
         xmlns:Menu="clr-namespace:ProjectCoder.Utilities"
         xmlns:vm="clr-namespace:ProjectCoder.ViewModel"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="600" Width="800"
+        Title="HomeWindow" Height="600" Width="600"
         ResizeMode="NoResize" Topmost="True" WindowStyle="None"        
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
@@ -178,11 +178,16 @@
                                       MouseEnter="ListViewItem_MouseEnter">
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                <Image Source="Assets/home.png"
-                                       Stretch="None"
-                                       Margin="12 0 0 0"/>
+                                <Button Background="Transparent" BorderBrush="Transparent"
+                                        Height="45" x:Name="homeButton" Click="homeButton_Click" >
+                                    <Button.Content>
+                                        <Image Source="Assets/home.png"
+                                               Stretch="None"
+                                               Margin="-7 0 0 0"/>
+                                    </Button.Content>
+                                </Button>                               
                                 <TextBlock Text="Главная"
-                                           Margin="25 0 0 0"
+                                           Margin="15 0 0 0"
                                            Style="{StaticResource font_style}"/>
                             </StackPanel>
 
@@ -204,8 +209,7 @@
                                                Stretch="None"
                                                Margin="-7 0 0 0"/>
                                     </Button.Content>
-
-                                </Button>
+                            </Button>
                             <TextBlock Text="Профиль"
                                            Margin="15 0 0 0"
                                            Style="{StaticResource font_style}"/>
@@ -223,11 +227,16 @@
                                       Margin="0 0 0 15" MouseEnter="ListViewItem_MouseEnter">
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
-                                <Image Source="Assets/сourses.png" 
+                                <Button Background="Transparent" BorderBrush="Transparent"
+                                        Height="45" x:Name="сoursesButton" Click="сoursesButton_Click" >
+                                    <Button.Content>
+                                        <Image Source="Assets/сourses.png" 
                                        Stretch="None"
-                                       Margin="12 0 0 0"/>
+                                               Margin="-7 0 0 0"/>
+                                    </Button.Content>
+                                </Button>                               
                                 <TextBlock Text="Курсы"
-                                           Margin="25 0 0 0"
+                                           Margin="15 0 0 0"
                                            Style="{StaticResource font_style}"/>
                             </StackPanel>
 
@@ -349,7 +358,7 @@
 
                 <Grid Grid.Column="1" x:Name="Pages">                  
                     <ContentControl
-                                Content="{Binding CurrentView}" Margin="0,0,-735,0" />
+                                Content="{Binding CurrentView}" Margin="0,0,-535,0" />
 
                 </Grid>
             </Grid>

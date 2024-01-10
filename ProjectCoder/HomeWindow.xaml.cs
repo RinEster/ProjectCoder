@@ -68,6 +68,23 @@ namespace ProjectCoder
             user.Margin = new Thickness(0, 0, -735, 0);
             Pages.Children.Add(user);
         }
+
+        private void homeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Home home = new Home();
+            home.Width = 535;
+            home.Margin = new Thickness(0, 0, -535, 0);
+            Pages.Children.Add(home);
+        }
+
+        private void сoursesButton_Click(object sender, RoutedEventArgs e)
+        {
+            Courses courses = new Courses();
+            courses.Width = 400;
+            courses.Margin = new Thickness(0, 0, -735, 0);
+            Pages.Children.Add(courses);
+
+        }
     }
    
     

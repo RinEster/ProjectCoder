@@ -5,27 +5,90 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectCoder.View"
              xmlns:vm="clr-namespace:ProjectCoder.ViewModel"
+         
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="500" Background="White">
+             d:DesignHeight="450" d:DesignWidth="535" Background="White">
     <UserControl.DataContext>
         <vm:HomeVM />
     </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style x:Key="font_style" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <Border Background="#dabdab"
-            CornerRadius="20">
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#606E8C" Offset="0.0"/>
+                    <GradientStop Color="#3E5F8A" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Border.Background>
             <Grid>
-                <Grid.ColumnDefinitions>
-
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="75"/>
-                    <RowDefinition/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <ContentControl  Grid.Row="1"
-                            Margin="10"
-                            Content="{Binding CurrentView}"/>
+                <TextBlock Text="Добро пожаловать, user!" HorizontalAlignment="Center" FontSize="30" Style="{StaticResource font_style}"  Grid.Column="0">
+                    <TextBlock.Effect>
+                        <DropShadowEffect BlurRadius="10" 
+                                          ShadowDepth="1"
+                                          Direction="-90" Color="White"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>                      
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                
+                    <Grid Opacity="0.7">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="150"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Пройденные курсы:" Margin="30 0 0 0" FontSize="24" Style="{StaticResource font_style}" >
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="10" 
+                                          ShadowDepth="1"
+                                          Direction="-90" Color="White"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+
+                        <Border Grid.Row="1" CornerRadius="5" Margin="10 10" Background="#A2ADD0">
+                            <TextBlock Text="В процессе разработки"/>
+                        </Border>
+
+                        <TextBlock Text="В процессе изучения:" Margin="30 0 0 0" FontSize="24" Style="{StaticResource font_style}" 
+                                   Grid.Row="2">
+                            <TextBlock.Effect>
+                            <DropShadowEffect BlurRadius="10" 
+                                          ShadowDepth="1"
+                                          Direction="-90" Color="White"/>
+                        </TextBlock.Effect>
+                        </TextBlock>
+                        <Border Grid.Row="3" Margin="10 10" CornerRadius="5" Background="#A2ADD0">
+                            <TextBlock Text="В процессе разработки"/>
+                        </Border>
+                    </Grid>
+
+                </Grid>
+               
+
+
+                <!--<ContentControl Grid.Row="1"                           
+                                Margin="10"
+                                Content="{Binding CurrentView}">
+                  
+                </ContentControl>-->
             </Grid>
         </Border>
     </Grid>
