@@ -7,7 +7,7 @@
              xmlns:vm="clr-namespace:ProjectCoder.ViewModel"
          
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="535" Background="White">
+             d:DesignHeight="450" d:DesignWidth="535" Background="Transparent">
     <UserControl.DataContext>
         <vm:HomeVM />
     </UserControl.DataContext>
@@ -51,11 +51,10 @@
                     <Grid Opacity="0.7">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
-                            <RowDefinition Height="150"/>
-                            <RowDefinition Height="50"/>
+                         
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="Пройденные курсы:" Margin="30 0 0 0" FontSize="24" Style="{StaticResource font_style}" >
+                        <TextBlock Text="Что нового в приложении?" Margin="30 0 0 0" FontSize="24" Style="{StaticResource font_style}" >
                             <TextBlock.Effect>
                                 <DropShadowEffect BlurRadius="10" 
                                           ShadowDepth="1"
@@ -63,21 +62,26 @@
                             </TextBlock.Effect>
                         </TextBlock>
 
-                        <Border Grid.Row="1" CornerRadius="5" Margin="10 10" Background="#A2ADD0">
-                            <TextBlock Text="В процессе разработки"/>
-                        </Border>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="360"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Grid.Column="0" CornerRadius="5" Margin="10 10" Background="#A2ADD0">
+                                <TextBlock Text="В процессе разработки"/>
+                            </Border>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Height="140" Source="/ProjectCoder;component/Assets/progr2128.png"/>
+                                <Image Grid.Row="1" Height="140" Source="/ProjectCoder;component/Assets/progr3128.png"/>
+                            </Grid>
+                        </Grid>
+                        
 
-                        <TextBlock Text="В процессе изучения:" Margin="30 0 0 0" FontSize="24" Style="{StaticResource font_style}" 
-                                   Grid.Row="2">
-                            <TextBlock.Effect>
-                            <DropShadowEffect BlurRadius="10" 
-                                          ShadowDepth="1"
-                                          Direction="-90" Color="White"/>
-                        </TextBlock.Effect>
-                        </TextBlock>
-                        <Border Grid.Row="3" Margin="10 10" CornerRadius="5" Background="#A2ADD0">
-                            <TextBlock Text="В процессе разработки"/>
-                        </Border>
+                       
                     </Grid>
 
                 </Grid>
