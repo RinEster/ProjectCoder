@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectCoder.View"
              xmlns:vm="clr-namespace:ProjectCoder.ViewModel"
-         
+            
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="535" Background="Transparent">
     <UserControl.DataContext>
@@ -67,9 +67,9 @@
                                 <ColumnDefinition Width="360"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Border Grid.Column="0" CornerRadius="5" Margin="10 10" Background="#A2ADD0">
-                                <TextBlock Text="В процессе разработки"/>
-                            </Border>
+                            <StackPanel x:Name="news" Grid.Column="0">
+                                
+                            </StackPanel>
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition />
