@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ProjectCoder.View"
           
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="535" Background="Transparent">
+             d:DesignHeight="550" d:DesignWidth="535" Background="Transparent">
     <UserControl.Resources>
         <Style x:Key="font_style" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto"/>
@@ -16,26 +16,32 @@
             <Setter Property="FontSize" Value="20"/>
         </Style>
     </UserControl.Resources>
-    <Grid Background="#7FC7FF">
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#606E8C" Offset="0.0"/>
+                <GradientStop Color="#3E5F8A" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="160"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="115"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Ellipse Grid.Row="0" Width="150" Height="150" Fill="LightBlue"/>      
-        <Image Stretch="None" Width="125" Height="125" Source="/ProjectCoder;component/Assets/progr1128.png"/>
+        <Ellipse Grid.Row="0" Width="100" Height="100" Fill="LightBlue"/>
+        <Image Stretch="None" Width="100" Height="100" Source="/ProjectCoder;component/Assets/progr164.png"/>
         <TextBlock HorizontalAlignment="Center"  
                    Style="{StaticResource font_style}"
                    Grid.Row="1"  
                    FontSize="25"                   
                    Text="Пользователь"/>
-        <Grid Grid.Row="2">
-            <Grid.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#7FC7FF" Offset="0.0"/>
-                    <GradientStop Color="#50b2ff" Offset="1.0"/>
-                </LinearGradientBrush>
-            </Grid.Background>
+        <TextBlock HorizontalAlignment="Center"  
+                   Style="{StaticResource font_style}"
+                   Grid.Row="2"  
+                   FontSize="20"                   
+                   Text="user@gmail.com"/>
+        <Grid Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="100"/>
@@ -43,13 +49,55 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Margin="20 0 0 0" Text="Изучаемые курсы" Style="{StaticResource font_style}"/>
-            <Border Grid.Row="1" CornerRadius="5" Margin="10 10" Background="#abdaff">
+            <Border Grid.Row="1" CornerRadius="5" Margin="10 10" 
+                    Width="300" HorizontalAlignment="Left" 
+                    Background="#ababe3">
                 <TextBlock Text="В процессе разработки"/>
             </Border>
             <TextBlock Grid.Row="2" Margin="20 0 0 0" Text="Прогресс в курсах" Style="{StaticResource font_style}"/>
-            <Border Grid.Row="3" CornerRadius="5" Margin="10 10" Background="#abdaff">
+            <Border HorizontalAlignment="Left" Grid.Row="3" CornerRadius="5" Width="350" Margin="10 10" Background="#abdaff">
                 <TextBlock Text="В процессе разработки"/>
             </Border>
+            <Image Opacity="0.2" HorizontalAlignment="Left" Height="100" Margin="365,26,0,0" Grid.Row="1" Grid.RowSpan="2" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Source="/ProjectCoder;component/Assets/python60.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-6.146"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Opacity="0.2" HorizontalAlignment="Left" Height="100" Margin="412,42,0,0" Grid.Row="3" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Source="/ProjectCoder;component/Assets/c++50.png">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="16.541"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
         </Grid>
+        <Image Opacity="0.2" HorizontalAlignment="Left" Height="100" Margin="403,68,0,0" VerticalAlignment="Top" Width="100" Source="/ProjectCoder;component/Assets/csharplogo50.png" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="3">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="11.432"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image Opacity="0.2" HorizontalAlignment="Left" Height="100" Margin="29,22,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="99" Source="/ProjectCoder;component/Assets/sql60.png" RenderTransformOrigin="0.5,0.5">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-12.068"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </UserControl>

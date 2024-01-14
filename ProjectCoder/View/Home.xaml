@@ -34,12 +34,9 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Добро пожаловать, user!" HorizontalAlignment="Center" FontSize="30" Style="{StaticResource font_style}"  Grid.Column="0">
-                    <TextBlock.Effect>
-                        <DropShadowEffect BlurRadius="10" 
-                                          ShadowDepth="1"
-                                          Direction="-90" Color="White"/>
-                    </TextBlock.Effect>
+                <TextBlock Text="Добро пожаловать, user!" HorizontalAlignment="Center" 
+                           Foreground="#f5f5fc" FontSize="30" Style="{StaticResource font_style}"  Grid.Column="0">
+                 
                 </TextBlock>
 
                 <Grid Grid.Row="1">
@@ -48,18 +45,15 @@
                     </Grid.ColumnDefinitions>
 
                 
-                    <Grid Opacity="0.7">
+                    <Grid Opacity="0.9">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="50"/>
                          
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Text="Что нового в приложении?" Margin="30 0 0 0" FontSize="24" Style="{StaticResource font_style}" >
-                            <TextBlock.Effect>
-                                <DropShadowEffect BlurRadius="10" 
-                                          ShadowDepth="1"
-                                          Direction="-90" Color="White"/>
-                            </TextBlock.Effect>
+                        <TextBlock Text="Что нового в приложении?" Margin="30 0 0 0" FontSize="24" 
+                                   Foreground="#f5f5fc" Style="{StaticResource font_style}" >
+                         
                         </TextBlock>
 
                         <Grid Grid.Row="1">
@@ -67,9 +61,11 @@
                                 <ColumnDefinition Width="360"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <StackPanel x:Name="news" Grid.Column="0">
+                            <ScrollViewer Grid.Column="0">
+                                <StackPanel x:Name="news"/>
+                            </ScrollViewer>
                                 
-                            </StackPanel>
+                         
                             <Grid Grid.Column="1">
                                 <Grid.RowDefinitions>
                                     <RowDefinition />

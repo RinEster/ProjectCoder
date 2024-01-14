@@ -54,8 +54,8 @@ namespace ProjectCoder
         private void settingsButton_Click(object sender, RoutedEventArgs e)
         {
             Settings settings = new Settings();
-            settings.Width = 400;
-            settings.Margin = new Thickness(0, 0, -735, 0);
+            settings.Width = 535;
+            settings.Margin = new Thickness(0, 0, -535, 0);
             Pages.Children.Add(settings);
 
            

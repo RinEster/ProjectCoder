@@ -6,15 +6,167 @@
              xmlns:local="clr-namespace:ProjectCoder.View"
              xmlns:vm="clr-namespace:ProjectCoder.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"       Style="{StaticResource Page_Style}">
-    <UserControl.DataContext>
-        <vm:SettingsVM />
-    </UserControl.DataContext>
-    <Grid>
-        <Border Height="600" Width="622" Background="Red"
-                >
-            <TextBlock Text=" настройки"
-                       FontSize="50"/>
+             d:DesignHeight="550" d:DesignWidth="535" Background="Transparent">
+    <UserControl.Resources>
+        <Style x:Key="font_style" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#606E8C" Offset="0.0"/>
+                <GradientStop Color="#3E5F8A" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="15 0 0 0" FontSize="24" Text="Настройки" Style="{StaticResource font_style}"/>
+        <Border Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>                    
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" 
+                           Grid.Column="0"
+                           Margin="5" 
+                           VerticalAlignment="Top" 
+                           Text="Редактировать профиль" 
+                           FontSize="22" 
+                           TextDecorations="Underline"
+                           Style="{StaticResource font_style}"/>
+
+                <TextBlock Margin="5" 
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           FontSize="18" 
+                           Style="{StaticResource font_style}"
+                           Text="Изменить логин"/>                
+             
+                <TextBlock Margin="5"  
+                           Grid.Row="2"
+                           Grid.Column="0"
+                           FontSize="18" 
+                           Style="{StaticResource font_style}"
+                           Text="Изменить электронную почту"/>
+                <TextBox Grid.Row="1"
+                         Grid.Column="1"
+                         Width="200"
+                         Height="40"
+                         Margin="5"
+                         Background="#e8e8f7"/>        
+
+                <TextBox Grid.Row="2"
+                         Grid.Column="1"
+                         Width="200"
+                         Height="40"
+                         Margin="5"
+                         Background="#e8e8f7"/>
+                
+                <Button Content="Изменить"
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        FontFamily="SemiBold" 
+                            FontSize="20"
+                            Foreground="White" 
+                            Background="#8585d6" 
+                            BorderThickness="0" 
+                            Width="150" Height="50"
+                            Margin="5"
+                        />
+            </Grid>
         </Border>
+        <Border Grid.Row="2" Margin="10" Background="#ababe3" CornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" 
+                           Grid.Column="0"
+                           Margin="5" 
+                           VerticalAlignment="Top" 
+                           Text="Изменить пароль" 
+                           FontSize="22" 
+                           TextDecorations="Underline"
+                           Style="{StaticResource font_style}"/>
+
+                <TextBlock Margin="5" 
+                           Grid.Row="1"
+                           Grid.Column="0"
+                           FontSize="18" 
+                           Style="{StaticResource font_style}"
+                           Text="Введите старый пароль"/>
+
+                <TextBlock Margin="5"  
+                           Grid.Row="2"
+                           Grid.Column="0"
+                           FontSize="18" 
+                           Style="{StaticResource font_style}"
+                           Text="Введите новый пароль"/>
+                <TextBlock Margin="5"  
+                           Grid.Row="3"
+                           Grid.Column="0"
+                           FontSize="18" 
+                           Style="{StaticResource font_style}"
+                           Text="Подтвердите новый пароль"/>
+                <TextBox Grid.Row="1"
+                         Grid.Column="1"
+                         Width="200"
+                         Height="40"
+                         Margin="5"
+                         Background="#e8e8f7"/>
+                <TextBox Grid.Row="2"
+                         Grid.Column="1"
+                         Width="200"
+                         Height="40"
+                         Margin="5"
+                         Background="#e8e8f7"/>
+
+                <TextBox Grid.Row="3"
+                         Grid.Column="1"
+                         Width="200"
+                         Height="40"
+                         Margin="5"
+                         Background="#e8e8f7"/>
+
+                <Button Content="Изменить"
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        FontFamily="SemiBold" 
+                            FontSize="20"
+                            Foreground="White" 
+                            Background="#8585d6" 
+                            BorderThickness="0" 
+                            Width="150" Height="50"
+                            Margin="5"
+                        />
+            </Grid>
+        </Border>
+
+
+
     </Grid>
 </UserControl>

@@ -24,7 +24,7 @@ namespace ProjectCoder.View
     public partial class Home : UserControl
     {
         string connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=News;" +
-            "Integrated Security=True; AttachDbFilename = |DataDirectory|\\News.mdf";
+            "Integrated Security=True; AttachDbFilename = |DataDirectory|\\News.mdf"; 
 
         string newsData = "Select News, NewsDate from News";
 
@@ -36,8 +36,7 @@ namespace ProjectCoder.View
         public Home()
         {
             InitializeComponent();
-
-           // NewsUserControl newsUserControl = new NewsUserControl();
+            //заполнение новостей
             DataSet ds1 = new DataSet();
             using (SqlConnection connection1 = new SqlConnection(connStr))
             {
@@ -45,9 +44,9 @@ namespace ProjectCoder.View
 
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(newsData, connStr);
 
-                dataAdapter.Fill(ds1, "News");
+                dataAdapter.Fill(ds1, "News"); //заполнение dataset
 
-                foreach(DataRow row in ds1.Tables[0].Rows)
+                foreach(DataRow row in ds1.Tables[0].Rows) //перенос данных в список
                 {
                     NewsDateList.Insert(0, new KeyValuePair<string, DateTime>(Convert.ToString(row["News"]), Convert.ToDateTime(row["NewsDate"])));                   
                 }
@@ -55,46 +54,20 @@ namespace ProjectCoder.View
 
                 if (NewsDateList != null)
                 {
-                    foreach (var keyValues in NewsDateList)
-                    {
+                    foreach (var keyValues in NewsDateList) //запонение данными usercontrol
+                    {   
                         NewsUserControl us = new NewsUserControl();
+                        us.Margin = new Thickness(5, 5, 5, 5);
                         newsString = keyValues.Key.ToString();
                         newsDateTime = keyValues.Value;
                         us.newsTextBlock.Text = newsString;
-                        us.dateTextBlock.Text = newsDateTime.ToString();
+                        us.dateTextBlock.Text = newsDateTime.ToString("dd/MM/yyyy");
                         news.Children.Add(us);
                     }
-                }
-                   
+                }                  
                     
-            }
-            //var dbBasket = new SqlCommand("[BasketLogin]", connection1);
-            //dbBasket.CommandType = CommandType.StoredProcedure;
-            //dbBasket.Parameters.AddWithValue("@loginProc", );
-            //SqlDataAdapter dataAdapter = new SqlDataAdapter();
-            //dataAdapter.SelectCommand = dbBasket;
-            //dataAdapter.Fill(ds1);
-            //foreach (DataRow row in ds1.Tables[0].Rows) //занесение результата хранимой  процедуры в список
-            //{
-            //    TitlePrice.Insert(0, new KeyValuePair<string, int>(Convert.ToString(row["title"]), Convert.ToInt32(row["price"])));
-            //    sum += Convert.ToInt32(row["price"]);
-            //}
-            //if (TitlePrice != null)
-            //{
-            //    foreach (var keyValues in TitlePrice)
-            //    {
-            //        UserControls.Product us = new UserControls.Product();
-            //        us.VerticalAlignment = VerticalAlignment.Top;
-            //        title = keyValues.Key.ToString();
-            //        price = keyValues.Value;
-            //        us.FillData(title, price);
-            //        panelTov.Children.Add(us);
-            //    }
-            //}
-          
-        }
-          
-            
-        }
+            } 
+        }        
     }
+}
 

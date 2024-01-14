@@ -67,7 +67,9 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -222,6 +224,15 @@
     <Resource Include="Assets\progr3128.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\progr164.png" />
+    <Resource Include="Assets\laptopcoding64.png" />
+    <Resource Include="Assets\code100.png" />
+    <Resource Include="Assets\programming100.png" />
+    <Resource Include="Assets\account100.png" />
+    <Resource Include="Assets\csharplogo50.png" />
+    <Resource Include="Assets\sql60.png" />
+    <Resource Include="Assets\python60.png" />
+    <Resource Include="Assets\c++50.png" />
     <Content Include="News.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
