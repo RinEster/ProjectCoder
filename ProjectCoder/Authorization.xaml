@@ -124,7 +124,7 @@
     <Grid Height="500" Width="500">
         <Rectangle Fill="#BFFFFFFF" HorizontalAlignment="Left" Height="350" Margin="100 60 0 0" Stroke="Black" VerticalAlignment="Top" Width="300" RadiusY="5" RadiusX="5"/>
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="350" VerticalAlignment="Top" Width="340" RadiusY="5" RadiusX="5" Margin="80,80,0,0" />
-        <Rectangle x:Name="rectangle" Fill="#FF26E0D8" HorizontalAlignment="Left" Height="80" Margin="380,111,0,0" RadiusY="9.5" RadiusX="9.5" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.5">
+        <Rectangle x:Name="rectangle" Fill="#ababe3" HorizontalAlignment="Left" Height="80" Margin="380,111,0,0" RadiusY="9.5" RadiusX="9.5" VerticalAlignment="Top" Width="80" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -136,12 +136,12 @@
         </Rectangle>
         <TextBlock x:Name="textBlock" Text="+" Foreground="White" FontSize="60" Margin="400,105,0,0" />
         <Grid x:Name="Вход" Margin="80,111,80,70">
-            <Ellipse Fill="#FF9BF3F0" HorizontalAlignment="Left" Height="85" Margin="60,234,0,0" VerticalAlignment="Top" Width="85"/>
-            <Ellipse Fill="#FF26E0D8" HorizontalAlignment="Left" Height="35" Margin="285,115,0,0" VerticalAlignment="Top" Width="35"/>
-            <Ellipse Fill="#FF75FFF9" HorizontalAlignment="Left" Height="76" Margin="0,207,0,0" VerticalAlignment="Top" Width="76"/>
-            <Ellipse Fill="#FFB7FFFC" HorizontalAlignment="Left" Height="129" Margin="211,190,0,0" VerticalAlignment="Top" Width="129"/>
-            <Rectangle Fill="#FF76F3EE" HorizontalAlignment="Left" Height="80" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="26"/>
-            <TextBlock HorizontalAlignment="Left" Height="57" Margin="31,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" FontSize="48" FontWeight="Bold" Text="ВХОД" Foreground="#FF76F3EE"/>
+            <Ellipse Fill="#c9c9ed" HorizontalAlignment="Left" Height="85" Margin="60,234,0,0" VerticalAlignment="Top" Width="85"/>
+            <Ellipse Fill="#9797dc" HorizontalAlignment="Left" Height="35" Margin="285,115,0,0" VerticalAlignment="Top" Width="35"/>
+            <Ellipse Fill="#bbbbe8" HorizontalAlignment="Left" Height="76" Margin="0,207,0,0" VerticalAlignment="Top" Width="76"/>
+            <Ellipse Fill="#d7d7f2" HorizontalAlignment="Left" Height="129" Margin="211,190,0,0" VerticalAlignment="Top" Width="129"/>
+            <Rectangle Fill="#ababe3" HorizontalAlignment="Left" Height="80" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="26"/>
+            <TextBlock HorizontalAlignment="Left" Height="57" Margin="31,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" FontSize="48" FontWeight="Bold" Text="ВХОД" Foreground="#ababe3"/>
             <TextBox x:Name="loginTextBox" 
                      materialDesign:HintAssist.Hint="Логин"
                      materialDesign:HintAssist.FloatingOffset="0,-20"
@@ -151,7 +151,7 @@
                      Height="40" Margin="60,99,60,0"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top" Width="220" 
-                     BorderBrush="#FF0EB3BB" Background="{x:Null}" 
+                     BorderBrush="#9797dc" Background="{x:Null}" 
                      Foreground="#BF000000" 
                      SelectionBrush="#FF00D7B0" FontSize="16" BorderThickness="0,0,0,2">
                 <TextBox.Style>
@@ -168,7 +168,7 @@
                      Height="40" Margin="60,155,60,0" 
                      TextWrapping="Wrap" 
                      VerticalAlignment="Top" Width="220" 
-                     BorderBrush="#FF0EB3BB" Background="{x:Null}" 
+                     BorderBrush="#9797dc" Background="{x:Null}" 
                      Foreground="#BF000000" SelectionBrush="#FF00D7B0" 
                      FontSize="16" BorderThickness="0,0,0,2">
                 <TextBox.Style>
@@ -185,12 +185,12 @@
                     Width="183"
                     FontFamily="SemiBold" 
                     FontSize="20"
-                    Foreground="White" Background="#FF26E0D8" 
+                    Foreground="White" Background="#ababe3" 
                     BorderThickness="0" 
                     Height="50"
                     x:Name="authenticationButton"
                     Click="authenticationButton_Click" />
-            <Rectangle x:Name="rectangle1" Fill="#FF26E0D8" HorizontalAlignment="Left" Height="54" Margin="76,210,0,0" Stroke="#FF26E0D8" VerticalAlignment="Top" Width="185.5" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
+            <Rectangle x:Name="rectangle1" Fill="#9797dc" HorizontalAlignment="Left" Height="54" Margin="76,210,0,0" Stroke="#9797dc" VerticalAlignment="Top" Width="185.5" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -203,12 +203,12 @@
 
         </Grid>
         <Grid x:Name="Регистрация" Margin="81.5,112,78.5,69" Visibility="Hidden">
-            <Ellipse Fill="#FF9BF3F0" HorizontalAlignment="Left" Height="85" Margin="60,234,0,0" VerticalAlignment="Top" Width="85"/>
-            <Ellipse Fill="#FF26E0D8" HorizontalAlignment="Left" Height="35" Margin="285,115,0,0" VerticalAlignment="Top" Width="35"/>
-            <Ellipse Fill="#FF75FFF9" HorizontalAlignment="Left" Height="76" Margin="0,207,0,0" VerticalAlignment="Top" Width="76"/>
-            <Ellipse Fill="#FFB7FFFC" HorizontalAlignment="Left" Height="129" Margin="211,190,0,0" VerticalAlignment="Top" Width="129"/>
-            <Rectangle Fill="#FF76F3EE" HorizontalAlignment="Left" Height="80" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="26"/>
-            <TextBlock HorizontalAlignment="Left" Height="57" Margin="31,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" FontSize="40" FontWeight="Bold" Text="РЕГИСТРАЦИЯ" Foreground="#FF76F3EE"/>
+            <Ellipse Fill="#c9c9ed" HorizontalAlignment="Left" Height="85" Margin="60,234,0,0" VerticalAlignment="Top" Width="85"/>
+            <Ellipse Fill="#9797dc" HorizontalAlignment="Left" Height="35" Margin="285,115,0,0" VerticalAlignment="Top" Width="35"/>
+            <Ellipse Fill="#bbbbe8" HorizontalAlignment="Left" Height="76" Margin="0,207,0,0" VerticalAlignment="Top" Width="76"/>
+            <Ellipse Fill="#d7d7f2" HorizontalAlignment="Left" Height="129" Margin="211,190,0,0" VerticalAlignment="Top" Width="129"/>
+            <Rectangle Fill="#ababe3" HorizontalAlignment="Left" Height="80" RadiusY="5" RadiusX="5" VerticalAlignment="Top" Width="26"/>
+            <TextBlock HorizontalAlignment="Left" Height="57" Margin="31,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" FontSize="40" FontWeight="Bold" Text="РЕГИСТРАЦИЯ" Foreground="#ababe3"/>
 
             <TextBox x:Name="loginRegTextBox"                      
                      materialDesign:HintAssist.Hint="Логин"
@@ -219,7 +219,7 @@
                      Height="40" Margin="60,99,60,0"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top" Width="220" 
-                     BorderBrush="#FF0EB3BB" 
+                     BorderBrush="#ababe3" 
                      Foreground="#BF000000" 
                      SelectionBrush="#FF00D7B0" FontSize="16" BorderThickness="0,0,0,2"     
                      Background="{x:Null}" >
@@ -237,7 +237,7 @@
                      Height="40" 
                      TextWrapping="Wrap" 
                      VerticalAlignment="Top" Width="220" 
-                     BorderBrush="#FF0EB3BB" Background="{x:Null}" 
+                     BorderBrush="#ababe3" Background="{x:Null}" 
                      Foreground="#BF000000" SelectionBrush="#FF00D7B0" 
                      FontSize="16" BorderThickness="0,0,0,2">
                 <TextBox.Style>
@@ -257,7 +257,7 @@
                     Width="220"
                     FontFamily="SemiBold" 
                     FontSize="20"
-                    Foreground="White" Background="#FF26E0D8" 
+                    Foreground="White" Background="#ababe3" 
                     BorderThickness="0" 
                     Height="50"
                     x:Name="regButton"
@@ -271,7 +271,7 @@
                      Height="40"   Margin="60,189.733,60,0" 
                      TextWrapping="Wrap" 
                      VerticalAlignment="Top" Width="220" 
-                     BorderBrush="#FF0EB3BB" Background="{x:Null}" 
+                     BorderBrush="#ababe3" Background="{x:Null}" 
                      Foreground="#BF000000" SelectionBrush="#FF00D7B0" 
                      FontSize="16" BorderThickness="0,0,0,2">
                 <TextBox.Style>
