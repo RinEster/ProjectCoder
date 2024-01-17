@@ -80,8 +80,8 @@ namespace ProjectCoder
         private void сoursesButton_Click(object sender, RoutedEventArgs e)
         {
             Courses courses = new Courses();
-            courses.Width = 400;
-            courses.Margin = new Thickness(0, 0, -735, 0);
+            courses.Width = 535;
+            courses.Margin = new Thickness(0, 0, -535, 0);
             Pages.Children.Add(courses);
 
         }

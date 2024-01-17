@@ -4,9 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectCoder.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+              mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="535" Background="Transparent">
+    <UserControl.Resources>
+        <Style x:Key="font_style" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid >
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#606E8C" Offset="0.0"/>
+                <GradientStop Color="#3E5F8A" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="15 0 0 0" FontSize="24" Text="Курсы" Style="{StaticResource font_style}"/>
+        <Border Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
+            <TreeView FontFamily="Roboto" Foreground="White" FontSize="18" x:Name="treeView"/>
+        </Border>
+      
+
     </Grid>
 </UserControl>
