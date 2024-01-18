@@ -28,16 +28,16 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="nameLectureTextBlock" VerticalAlignment="Center"  Margin="10 5 10 5" FontSize="22"  Style="{StaticResource font_style}"/>
+        <TextBlock x:Name="nameLectureTextBlock" VerticalAlignment="Center"  
+                   Margin="10 5 10 5" FontSize="22"  
+                   Style="{StaticResource font_style}"/>
 
         <Border Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                <TextBlock x:Name="lecture" Margin="5" TextWrapping="WrapWithOverflow" FontSize="20"  Foreground="White"/>
+                <TextBlock x:Name="lecture" Margin="5" 
+                           TextWrapping="WrapWithOverflow" 
+                           FontSize="20"  Foreground="White"/>
             </ScrollViewer>
         </Border>
-           
-    
-       
-           
     </Grid>
 </UserControl>

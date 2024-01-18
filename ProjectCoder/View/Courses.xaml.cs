@@ -26,9 +26,8 @@ namespace ProjectCoder.View
         public static string ConnStr = "Data Source = DESKTOP-E6HKS9J\\SQLEXPRESS;Initial Catalog = \"CodeVerseLeesons\"; Integrated Security = True"; //строка одключения бд
 
         public string nameLecture;
+        public string lectureText;
 
-        public object name;
-        public object lection;
 
         public Courses()
         {
@@ -129,13 +128,54 @@ namespace ProjectCoder.View
                 {
                     courses.Children.RemoveAt(0);
                 }
-                LectureUserControl lecture = new LectureUserControl();
+
                 nameLecture = selectedNode.Header.ToString();
-                courses.Children.Add(lecture);
-              
             }
+
+            foreach (DataRow row in GetCourses().Rows)
+            {
+                foreach (DataColumn col in GetCourses().Columns)
+                {
+                    if(nameLecture== row[0].ToString())
+                    {
+                        LectureUserControl lecture = new LectureUserControl();
+                        lectureText = row[1].ToString();
+
+                        lecture.lecture.Text = lectureText;
+                        lecture.nameLectureTextBlock.Text = nameLecture;
+                        
+                        
+                        courses.Children.Add(lecture);
+                    }
+                }
+            }
+            
+        }
+        public static DataTable GetCourses() // заполнение датасет данными из бд
+        {
+            SqlConnection connection = new SqlConnection(ConnStr);
+            string sqlCourses = "SELECT TopicDirectory.[Name], BankLessons.Text FROM TopicDirectory, BankLessons where TopicDirectory.ID = BankLessons.TopicID";
+            SqlDataAdapter da = new SqlDataAdapter(sqlCourses, connection);
+            DataSet ds = new DataSet();
+            DataTable dataTable = new DataTable();
+            try
+            {
+                connection.Open();
+                // Заполнить DataSet
+                da.Fill(ds, "BankLessons");
+                DataTable tempTable = ds.Tables[0];
+                dataTable = tempTable.Copy();
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dataTable;
+
+
         }
 
-       
+
     }
 }
