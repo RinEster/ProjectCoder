@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectCoder.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -24,11 +25,23 @@ namespace ProjectCoder.View
     {
         public static string ConnStr = "Data Source = DESKTOP-E6HKS9J\\SQLEXPRESS;Initial Catalog = \"CodeVerseLeesons\"; Integrated Security = True"; //строка одключения бд
 
+        public string nameLecture;
+
+        public object name;
+        public object lection;
+
         public Courses()
         {
             InitializeComponent();
             FillParetChildTree();
+
+           
+
         }
+
+       
+
+
         /// <summary>
         /// метод для заполнения treeview
         /// </summary>
@@ -57,7 +70,6 @@ namespace ProjectCoder.View
         /// <param name="items"></param>
         /// <param name="node"></param>
         public void FillNode(List<ItemInfo> items, TreeViewItem node)
-
         {
             var parentId = node != null ? (int)node.Tag : 0;
             var nodesCollection = node != null ? node.Items : treeView.Items;
@@ -67,7 +79,6 @@ namespace ProjectCoder.View
                 nodesCollection.Add(newNode);
                 FillNode(items, newNode);
             }
-
         }
 
         public class ItemInfo
@@ -84,19 +95,13 @@ namespace ProjectCoder.View
         {
             SqlConnection connection = new SqlConnection(ConnStr);
             string sqlCat = "SELECT * FROM TopicDirectory";
-
             string sqlTrees = "SELECT * FROM ParentChildTree";
-
             SqlDataAdapter da = new SqlDataAdapter(sqlCat, connection);
-
             DataSet ds = new DataSet();
-
             try
             {
                 connection.Open();
-                // Заполнить DataSet
-                da.Fill(ds, "TopicDirectory");
-                // Добавить таблицу products
+                da.Fill(ds, "TopicDirectory");              
                 da.SelectCommand.CommandText = sqlTrees;
                 da.Fill(ds, "ParentChildTree");
             }
@@ -104,8 +109,6 @@ namespace ProjectCoder.View
             {
                 connection.Close();
             }
-
-            // Добавить отношение
 
             DataRelation relat = new DataRelation("CourcesTrees",
             ds.Tables["ParentChildTree"].Columns["ChildId"],
@@ -116,5 +119,23 @@ namespace ProjectCoder.View
             return ds;
         }
 
+        private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            var selectedNode = (TreeViewItem)treeView.SelectedItem;
+
+            if (selectedNode.Items.Count == 0)
+            {
+                while (courses.Children.Count > 0)
+                {
+                    courses.Children.RemoveAt(0);
+                }
+                LectureUserControl lecture = new LectureUserControl();
+                nameLecture = selectedNode.Header.ToString();
+                courses.Children.Add(lecture);
+              
+            }
+        }
+
+       
     }
 }

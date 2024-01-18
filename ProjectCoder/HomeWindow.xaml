@@ -323,7 +323,6 @@
                                             </Border>
 
                                             <ControlTemplate.Triggers>
-
                                                 <MultiTrigger>
 
                                                     <MultiTrigger.Conditions>
@@ -350,23 +349,13 @@
                                 </Setter>
                             </Style>
                         </ListView.ItemContainerStyle>
-
                     </ListView>
-
-
                 </StackPanel>
 
                 <Grid Grid.Column="1" x:Name="Pages">                  
-                    <ContentControl
-                                Content="{Binding CurrentView}" Margin="0,0,-535,0" />
-
+                    <ContentControl Content="{Binding CurrentView}" Margin="0,0,-535,0" />
                 </Grid>
             </Grid>
-
-
-
-
-
         </Grid>
     </Grid>
 </Window>

@@ -88,6 +88,9 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="UserControls\LectureUserControl.xaml.cs">
+      <DependentUpon>LectureUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\NewsUserControl.xaml.cs">
       <DependentUpon>NewsUserControl.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\LectureUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
