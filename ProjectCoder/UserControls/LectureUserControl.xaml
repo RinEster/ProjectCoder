@@ -36,6 +36,7 @@
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
                 <TextBlock x:Name="lecture" Margin="5" 
                            TextWrapping="WrapWithOverflow" 
+                           Text="{Binding lecture}"
                            FontSize="20"  Foreground="White"/>
             </ScrollViewer>
         </Border>

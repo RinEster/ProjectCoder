@@ -32,14 +32,8 @@ namespace ProjectCoder.View
         public Courses()
         {
             InitializeComponent();
-            FillParetChildTree();
-
-           
-
-        }
-
-       
-
+            FillParetChildTree();      
+        }      
 
         /// <summary>
         /// метод для заполнения treeview
@@ -86,6 +80,7 @@ namespace ProjectCoder.View
             public int ParentId;
             public string Name;
         }
+
         /// <summary>
         /// Вспомогательный метод, возвращающий DataSet для двух таблиц TopicDirectory и ParentChildTree
         /// </summary>
@@ -118,6 +113,11 @@ namespace ProjectCoder.View
             return ds;
         }
 
+        /// <summary>
+        /// открытие лекции выбранной темы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             var selectedNode = (TreeViewItem)treeView.SelectedItem;
@@ -142,16 +142,19 @@ namespace ProjectCoder.View
                         lectureText = row[1].ToString();
 
                         lecture.lecture.Text = lectureText;
-                        lecture.nameLectureTextBlock.Text = nameLecture;
-                        
+                        lecture.nameLectureTextBlock.Text = nameLecture;                       
                         
                         courses.Children.Add(lecture);
                     }
                 }
-            }
-            
+            }            
         }
-        public static DataTable GetCourses() // заполнение датасет данными из бд
+
+        /// <summary>
+        /// получение таблицы с наименованием лекции и с текстом лекции
+        /// </summary>
+        /// <returns></returns>
+        public static DataTable GetCourses()
         {
             SqlConnection connection = new SqlConnection(ConnStr);
             string sqlCourses = "SELECT TopicDirectory.[Name], BankLessons.Text FROM TopicDirectory, BankLessons where TopicDirectory.ID = BankLessons.TopicID";
@@ -172,10 +175,6 @@ namespace ProjectCoder.View
             }
 
             return dataTable;
-
-
         }
-
-
     }
 }

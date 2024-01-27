@@ -85,6 +85,14 @@ namespace ProjectCoder
             Pages.Children.Add(courses);
 
         }
+
+        private void testsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Tests tests = new Tests();
+            tests.Width = 535;
+            tests.Margin = new Thickness(0, 0, -535, 0);
+            Pages.Children.Add(tests);
+        }
     }
    
     

@@ -274,10 +274,37 @@
                                          Style="{StaticResource toolTipStyle}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
-                        
+                        <!--Тесты-->
+
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0 0 0 15" MouseEnter="ListViewItem_MouseEnter">
+
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                                <Button Background="Transparent" BorderBrush="Transparent"
+                                        Height="45" x:Name="testsButton" Click="testsButton_Click">
+                                    <Button.Content>
+                                        <Image Source="Assets/tests.png" 
+                                       Stretch="None"
+                                       Margin="-7 0 0 0"/>
+                                    </Button.Content>
+
+                                </Button>
+
+                                <TextBlock Text="Тесты"
+                                           Margin="15 0 0 0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="ttTests"
+                                         Content="Tests"
+                                         Style="{StaticResource toolTipStyle}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
                         <!--Выход-->
                         <ListViewItem HorizontalAlignment="Left"                                      
-                                      Margin="0 190 0 15" 
+                                      Margin="0 125 0 15" 
                                       MouseEnter="ListViewItem_MouseEnter">
                             <StackPanel Orientation="Horizontal"
                                         Width="230">
