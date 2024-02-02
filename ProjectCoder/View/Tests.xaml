@@ -29,7 +29,7 @@
         <TextBlock Grid.Row="0" Margin="15 0 0 0" FontSize="24" Text="Тесты" Style="{StaticResource font_style}"/>
         <Border  Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
             <Grid x:Name="tests">
-                <ListBox x:Name="test"/>
+                <ListBox x:Name="test" SelectionChanged="test_SelectionChanged"/>
             </Grid>
         </Border>
 

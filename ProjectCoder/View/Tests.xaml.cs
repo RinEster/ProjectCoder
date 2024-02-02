@@ -37,13 +37,55 @@ namespace ProjectCoder.View
             SqlCommand command = new SqlCommand("Select Distinct  TopicDirectory.[Name],BankQuestions.TopicID From TopicDirectory inner join  " +
                 "BankQuestions on BankQuestions.TopicID = TopicDirectory.ID", con);
             con.Open(); //Открываем соединение
-            SqlDataReader read = command.ExecuteReader();
+            SqlDataReader read = command.ExecuteReader();            
             while (read.Read())
             {
-                test.Items.Add(read.GetValue(0).ToString());
+                test.Items.Add(read.GetValue(0).ToString());              
             }
             con.Close();
         }
-      
+
+        private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedListItem = (sender as ListBox).SelectedItem;
+
+            string proc = "dbo.RelatedQuestions";
+            using(SqlConnection procConnection = new SqlConnection(Courses.ConnStr))
+            {
+                procConnection.Open();
+                SqlCommand relatedQuestions = new SqlCommand(proc, procConnection);
+                relatedQuestions.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter topicName = new SqlParameter
+                {
+                    ParameterName = "@topicName",
+                    Value = selectedListItem
+                };
+                relatedQuestions.Parameters.Add(topicName);
+                // Создание объекта DataTable для хранения результата
+                DataTable resultTable = new DataTable();
+
+                // Создание объекта SqlDataReader для чтения результата
+                using (SqlDataReader reader = relatedQuestions.ExecuteReader())
+                {
+                    // Заполнение DataTable данными из результата
+                    resultTable.Load(reader);
+                }
+
+                // Отображение содержимого DataTable в MessageBox
+                StringBuilder message = new StringBuilder();
+                foreach (DataRow row in resultTable.Rows)
+                {
+                    foreach (DataColumn col in resultTable.Columns)
+                    {
+                        message.Append(row[col].ToString() + "\t");
+                    }
+                    message.AppendLine();
+                }
+
+                MessageBox.Show(message.ToString());
+            }
+
+        }
     }
 }
