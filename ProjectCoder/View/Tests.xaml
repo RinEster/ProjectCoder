@@ -25,6 +25,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Margin="15 0 0 0" FontSize="24" Text="Тесты" Style="{StaticResource font_style}"/>
         <Border  Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
@@ -32,6 +33,36 @@
                 <ListBox x:Name="test" SelectionChanged="test_SelectionChanged"/>
             </Grid>
         </Border>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Назад"
+                                x:Name="naz"
+                       Grid.Column="0"
+                        
+                        FontFamily="SemiBold" 
+                            FontSize="20"
+                            Foreground="White" 
+                            Background="#8585d6" 
+                            BorderThickness="0" 
+                            Width="150" Height="50"
+                            Margin="5" Click="naz_Click" 
+                        />
+            <Button Content="Далее"
+                                x:Name="dalee"
+                       Grid.Column="1"
+                        
+                        FontFamily="SemiBold" 
+                            FontSize="20"
+                            Foreground="White" 
+                            Background="#8585d6" 
+                            BorderThickness="0" 
+                            Width="150" Height="50"
+                            Margin="5" Click="dalee_Click" 
+                        />
+        </Grid>
 
     </Grid>
 </UserControl>

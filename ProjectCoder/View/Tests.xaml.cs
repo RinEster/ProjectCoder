@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjectCoder.UserControls;
 
 namespace ProjectCoder.View
 {
@@ -28,6 +29,8 @@ namespace ProjectCoder.View
             TestList();
         }
 
+       
+       
         /// <summary>
         /// добавление списка тестов
         /// </summary>
@@ -44,11 +47,15 @@ namespace ProjectCoder.View
             }
             con.Close();
         }
-
+        public TestUserControl testUserControl = new TestUserControl();
+        public string nameTopic;
+        public DataTable resultTable;
+        public int count = 0;
+        public int max = 0;
         private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedListItem = (sender as ListBox).SelectedItem;
-
+            nameTopic = selectedListItem.ToString();
             string proc = "dbo.RelatedQuestions";
             using(SqlConnection procConnection = new SqlConnection(Courses.ConnStr))
             {
@@ -63,7 +70,7 @@ namespace ProjectCoder.View
                 };
                 relatedQuestions.Parameters.Add(topicName);
                 // Создание объекта DataTable для хранения результата
-                DataTable resultTable = new DataTable();
+                resultTable = new DataTable();
 
                 // Создание объекта SqlDataReader для чтения результата
                 using (SqlDataReader reader = relatedQuestions.ExecuteReader())
@@ -71,21 +78,41 @@ namespace ProjectCoder.View
                     // Заполнение DataTable данными из результата
                     resultTable.Load(reader);
                 }
+           
 
-                // Отображение содержимого DataTable в MessageBox
-                StringBuilder message = new StringBuilder();
-                foreach (DataRow row in resultTable.Rows)
-                {
-                    foreach (DataColumn col in resultTable.Columns)
-                    {
-                        message.Append(row[col].ToString() + "\t");
-                    }
-                    message.AppendLine();
-                }
+                //// Отображение содержимого DataTable в MessageBox
+                //StringBuilder message = new StringBuilder();
+                //foreach (DataRow row in resultTable.Rows)
+                //{
+                //    foreach (DataColumn col in resultTable.Columns)
+                //    {
+                //        message.Append(row[col].ToString() + "\t");
+                //    }
+                //    message.AppendLine();
+                //}
+                //MessageBox.Show(message.ToString());
+              
+                testUserControl.questionsData(nameTopic, resultTable, count);
 
-                MessageBox.Show(message.ToString());
+
+
+                tests.Children.Add(testUserControl);
             }
 
+        }
+
+        private void dalee_Click(object sender, RoutedEventArgs e)
+        {
+            if (count < resultTable.Rows.Count-1)
+            {
+                count++; testUserControl.questionsData(nameTopic, resultTable, count);
+            }
+          
+        }
+
+        private void naz_Click(object sender, RoutedEventArgs e)
+        {
+            if (count > 0) { count--; testUserControl.questionsData(nameTopic, resultTable, count); }
         }
     }
 }
