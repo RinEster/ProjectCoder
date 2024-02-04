@@ -51,7 +51,7 @@ namespace ProjectCoder.View
         public DataTable resultTable;
         public int count = 0;
         public int max = 0;
-
+        public string answer ;
         /// <summary>
         /// загрузка теста по выбранной теме
         /// </summary>
@@ -101,6 +101,14 @@ namespace ProjectCoder.View
         private void backward_Click(object sender, RoutedEventArgs e)
         {
             if (count > 0) { count--; testUserControl.questionsData(nameTopic, resultTable, count); }
+        }
+
+        private void check_Click(object sender, RoutedEventArgs e)
+        {
+            answer = resultTable.Rows[count][2].ToString();
+            string response = testUserControl.responseForVerification(answer);
+            if (response == answer) MessageBox.Show("иолодец");
+            else MessageBox.Show("Лох");
         }
     }
 }

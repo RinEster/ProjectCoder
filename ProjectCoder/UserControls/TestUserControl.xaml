@@ -47,22 +47,22 @@
                             <RowDefinition Height="70"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <RadioButton Grid.Row="0">
+                        <RadioButton Grid.Row="0" x:Name="oneRadioButton">
                             <RadioButton.Content>
                                 <TextBlock TextWrapping="Wrap"  FontSize="16" x:Name="optionOne"/>
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Grid.Row="1">
+                        <RadioButton Grid.Row="1"  x:Name="twoRadioButton">
                             <RadioButton.Content>
                                 <TextBlock TextWrapping="Wrap"  FontSize="16"  x:Name="optionTwo"/>
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Grid.Row="2">
+                        <RadioButton Grid.Row="2"  x:Name="threeRadioButton">
                             <RadioButton.Content>
                                 <TextBlock TextWrapping="Wrap"  FontSize="16"  x:Name="optionThree"/>
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Grid.Row="3">
+                        <RadioButton Grid.Row="3"  x:Name="fourRadioButton">
                             <RadioButton.Content>
                                 <TextBlock TextWrapping="Wrap"  FontSize="16"  x:Name="optionFour"/>
                             </RadioButton.Content>

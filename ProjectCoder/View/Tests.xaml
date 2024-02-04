@@ -37,6 +37,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Content="Назад"
                                 x:Name="backward"
@@ -50,9 +51,21 @@
                             Width="150" Height="50"
                             Margin="5" Click="backward_Click" 
                         />
+            <Button Content="Проверить"
+                                x:Name="check"
+                       Grid.Column="1"
+                        
+                        FontFamily="SemiBold" 
+                            FontSize="20"
+                            Foreground="White" 
+                            Background="#8585d6" 
+                            BorderThickness="0" 
+                            Width="150" Height="50"
+                            Margin="5" Click="check_Click" 
+                        />
             <Button Content="Далее"
                                 x:Name="forward"
-                       Grid.Column="1"
+                       Grid.Column="2"
                         
                         FontFamily="SemiBold" 
                             FontSize="20"
