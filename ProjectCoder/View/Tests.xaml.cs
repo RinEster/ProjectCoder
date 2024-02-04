@@ -52,6 +52,7 @@ namespace ProjectCoder.View
         public int count = 0;
         public int max = 0;
         public string answer ;
+
         /// <summary>
         /// загрузка теста по выбранной теме
         /// </summary>
@@ -74,13 +75,10 @@ namespace ProjectCoder.View
                     Value = selectedListItem
                 };
                 relatedQuestions.Parameters.Add(topicName);
-                // Создание объекта DataTable для хранения результата
-                resultTable = new DataTable();
-
-                // Создание объекта SqlDataReader для чтения результата
+             
+                resultTable = new DataTable();              
                 using (SqlDataReader reader = relatedQuestions.ExecuteReader())
                 {
-                    // Заполнение DataTable данными из результата
                     resultTable.Load(reader);
                 }   
 
@@ -103,12 +101,17 @@ namespace ProjectCoder.View
             if (count > 0) { count--; testUserControl.questionsData(nameTopic, resultTable, count); }
         }
 
+        /// <summary>
+        /// проверка правильности ответа
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void check_Click(object sender, RoutedEventArgs e)
         {
             answer = resultTable.Rows[count][2].ToString();
             string response = testUserControl.responseForVerification(answer);
-            if (response == answer) MessageBox.Show("иолодец");
-            else MessageBox.Show("Лох");
+            if (response == answer) MessageBox.Show("Правильный ответ");
+            else MessageBox.Show("Ошибка");
         }
     }
 }

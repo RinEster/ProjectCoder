@@ -24,10 +24,14 @@ namespace ProjectCoder.UserControls
         public TestUserControl()
         {
             InitializeComponent();
-
         }
 
-        //выгрузка вопросов и ответов из базы данных в textblock и radiobutton
+        /// <summary>
+        /// выгрузка вопросов и ответов из базы данных в textblock и radiobutton
+        /// </summary>
+        /// <param name="topicName"></param>
+        /// <param name="resultTable"></param>
+        /// <param name="count"></param>
         public void questionsData(string topicName, DataTable resultTable, int count)
         {
             nameTestTextBlock.Text = topicName;          
@@ -38,7 +42,11 @@ namespace ProjectCoder.UserControls
             optionFour.Text = resultTable.Rows[count][6].ToString();
            
         }
-        //для проверки
+        /// <summary>
+        ///  для получения выбранного ответа
+        /// </summary>
+        /// <param name="response"></param>
+        /// <returns></returns>
         public string responseForVerification(string response)
         {
             if (oneRadioButton.IsChecked == true) response = optionOne.Text;
