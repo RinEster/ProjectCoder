@@ -39,7 +39,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Content="Назад"
-                                x:Name="naz"
+                                x:Name="backward"
                        Grid.Column="0"
                         
                         FontFamily="SemiBold" 
@@ -48,10 +48,10 @@
                             Background="#8585d6" 
                             BorderThickness="0" 
                             Width="150" Height="50"
-                            Margin="5" Click="naz_Click" 
+                            Margin="5" Click="backward_Click" 
                         />
             <Button Content="Далее"
-                                x:Name="dalee"
+                                x:Name="forward"
                        Grid.Column="1"
                         
                         FontFamily="SemiBold" 
@@ -60,7 +60,7 @@
                             Background="#8585d6" 
                             BorderThickness="0" 
                             Width="150" Height="50"
-                            Margin="5" Click="dalee_Click" 
+                            Margin="5" Click="forward_Click" 
                         />
         </Grid>
 

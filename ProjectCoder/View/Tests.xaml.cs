@@ -27,9 +27,7 @@ namespace ProjectCoder.View
         {
             InitializeComponent();
             TestList();
-        }
-
-       
+        }       
        
         /// <summary>
         /// добавление списка тестов
@@ -47,11 +45,18 @@ namespace ProjectCoder.View
             }
             con.Close();
         }
+
         public TestUserControl testUserControl = new TestUserControl();
         public string nameTopic;
         public DataTable resultTable;
         public int count = 0;
         public int max = 0;
+
+        /// <summary>
+        /// загрузка теста по выбранной теме
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void test_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedListItem = (sender as ListBox).SelectedItem;
@@ -77,31 +82,14 @@ namespace ProjectCoder.View
                 {
                     // Заполнение DataTable данными из результата
                     resultTable.Load(reader);
-                }
-           
+                }   
 
-                //// Отображение содержимого DataTable в MessageBox
-                //StringBuilder message = new StringBuilder();
-                //foreach (DataRow row in resultTable.Rows)
-                //{
-                //    foreach (DataColumn col in resultTable.Columns)
-                //    {
-                //        message.Append(row[col].ToString() + "\t");
-                //    }
-                //    message.AppendLine();
-                //}
-                //MessageBox.Show(message.ToString());
-              
                 testUserControl.questionsData(nameTopic, resultTable, count);
-
-
-
                 tests.Children.Add(testUserControl);
             }
-
         }
 
-        private void dalee_Click(object sender, RoutedEventArgs e)
+        private void forward_Click(object sender, RoutedEventArgs e)
         {
             if (count < resultTable.Rows.Count-1)
             {
@@ -110,7 +98,7 @@ namespace ProjectCoder.View
           
         }
 
-        private void naz_Click(object sender, RoutedEventArgs e)
+        private void backward_Click(object sender, RoutedEventArgs e)
         {
             if (count > 0) { count--; testUserControl.questionsData(nameTopic, resultTable, count); }
         }

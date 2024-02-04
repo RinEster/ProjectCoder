@@ -21,31 +21,22 @@ namespace ProjectCoder.UserControls
     /// </summary>
     public partial class TestUserControl : UserControl
     {
-     
         public TestUserControl()
         {
-            InitializeComponent();         
-            
-        }
-      
-        
-    
+            InitializeComponent();
 
+        }
+
+        //выгрузка вопросов и ответов из базы данных в textblock и radiobutton
         public void questionsData(string topicName, DataTable resultTable, int count)
-        {         
-                        
+        {
             nameTestTextBlock.Text = topicName;
             string answer = resultTable.Rows[count][2].ToString();
             question.Text = resultTable.Rows[count][1].ToString();
-            optionOne.Content = resultTable.Rows[count][3].ToString();
-            optionTwo.Content = resultTable.Rows[count][4].ToString();
-            optionThree.Content = resultTable.Rows[count][5].ToString();
-            optionFour.Content = resultTable.Rows[count][6].ToString();    
-            
-                  
-
+            optionOne.Text = resultTable.Rows[count][3].ToString();
+            optionTwo.Text = resultTable.Rows[count][4].ToString();
+            optionThree.Text = resultTable.Rows[count][5].ToString();
+            optionFour.Text = resultTable.Rows[count][6].ToString();  
         }
-
-      
     }
 }
