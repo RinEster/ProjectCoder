@@ -119,9 +119,9 @@ namespace ProjectCoder.View
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void treeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
+        {    
             var selectedNode = (TreeViewItem)treeView.SelectedItem;
-
+        
             if (selectedNode.Items.Count == 0)
             {
                 while (courses.Children.Count > 0)

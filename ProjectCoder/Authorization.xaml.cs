@@ -85,9 +85,12 @@ namespace ProjectCoder
                 if (reader != 0)
                 {
                     loginUser = login;
-                    timer.Interval = TimeSpan.FromSeconds(0.5);
-                    timer.Tick += Timer_Tick;
-                    timer.Start();
+                    //timer.Interval = TimeSpan.FromSeconds(0.5);
+                    //timer.Tick += Timer_Tick;
+                    //timer.Start();
+                    HomeWindow homeWindow = new HomeWindow();
+                    homeWindow.Show();
+                    Close();
                 }
                 else 
                 {
@@ -101,13 +104,13 @@ namespace ProjectCoder
 
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            timer.Stop();
-            HomeWindow homeWindow = new HomeWindow();
-            homeWindow.Show();
-            Close();
-        }
+        //private void Timer_Tick(object sender, EventArgs e)
+        //{
+        //    timer.Stop();
+        //    HomeWindow homeWindow = new HomeWindow();
+        //    homeWindow.Show();
+        //    Close();
+        //}
 
         private void regButton_Click(object sender, RoutedEventArgs e)
         {

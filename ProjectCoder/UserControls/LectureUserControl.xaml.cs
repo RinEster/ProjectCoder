@@ -26,6 +26,20 @@ namespace ProjectCoder.UserControls
         public LectureUserControl()
         {
             InitializeComponent();      
-        }      
+        }
+
+        private void status_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Материал изучен?", "Обучение",
+            MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+               
+            }
+            else
+            {
+
+            }
+        }
     }
 }

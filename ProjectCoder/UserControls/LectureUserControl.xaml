@@ -26,6 +26,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <TextBlock x:Name="nameLectureTextBlock" VerticalAlignment="Center"  
@@ -40,5 +41,6 @@
                            FontSize="20"  Foreground="White"/>
             </ScrollViewer>
         </Border>
+        <TextBlock x:Name="status" MouseDown="status_MouseDown" Text="Завершить" Grid.Row="2"  Foreground="White" FontSize="18" HorizontalAlignment="Right" Margin="15 10"/>
     </Grid>
 </UserControl>
