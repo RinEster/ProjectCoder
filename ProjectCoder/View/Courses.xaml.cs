@@ -25,7 +25,7 @@ namespace ProjectCoder.View
     {
         public static string ConnStr = "Data Source = DESKTOP-E6HKS9J\\SQLEXPRESS;Initial Catalog = \"CodeVerseLeesons\"; Integrated Security = True"; //строка одключения бд
 
-        public string nameLecture;
+        public static string nameLecture;
         public string lectureText;
 
 
