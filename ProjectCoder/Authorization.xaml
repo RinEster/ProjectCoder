@@ -71,7 +71,7 @@
             </ObjectAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Autorization">
-            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle1">
+            <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="rectangle1">
                 <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
             </ObjectAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="rectangle1">
@@ -110,7 +110,7 @@
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="rectangle">
                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-3"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-4.5"/>
-            </DoubleAnimationUsingKeyFrames>
+            </DoubleAnimationUsingKeyFrames>-->
         </Storyboard>
     </Window.Resources>
     <Window.Triggers>
@@ -153,7 +153,7 @@
                      VerticalAlignment="Top" Width="220" 
                      BorderBrush="#9797dc" Background="{x:Null}" 
                      Foreground="#BF000000" 
-                     SelectionBrush="#FF00D7B0" FontSize="16" BorderThickness="0,0,0,2">
+                     SelectionBrush="#d7d7f2" FontSize="16" BorderThickness="0,0,0,2">
                 <TextBox.Style>
                     <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
                         <Setter Property="FontSize" Value="16" />
@@ -161,23 +161,22 @@
                     </Style>
                 </TextBox.Style>
             </TextBox>
-            <TextBox x:Name="passwordPassBox" 
+            <PasswordBox x:Name="passwordPassBox" 
                      materialDesign:HintAssist.Hint="Пароль"
                      materialDesign:HintAssist.FloatingOffset="0,-20"
                      HorizontalAlignment="Center" 
                      Height="40" Margin="60,155,60,0" 
-                     TextWrapping="Wrap" 
                      VerticalAlignment="Top" Width="220" 
                      BorderBrush="#9797dc" Background="{x:Null}" 
-                     Foreground="#BF000000" SelectionBrush="#FF00D7B0" 
+                     Foreground="#BF000000" SelectionBrush="#d7d7f2" 
                      FontSize="16" BorderThickness="0,0,0,2">
-                <TextBox.Style>
-                    <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                <PasswordBox.Style>
+                    <Style TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}">
                         <Setter Property="FontSize" Value="16" />
                         <Setter Property="FontFamily" Value="SemiBold"/>
                     </Style>
-                </TextBox.Style>
-            </TextBox>
+                </PasswordBox.Style>
+            </PasswordBox>
 
             <Button Content="Войти"     
                     Margin="75 210 75 0" 
@@ -190,6 +189,7 @@
                     Height="50"
                     x:Name="authenticationButton"
                     Click="authenticationButton_Click" />
+            <TextBlock MouseDown="exit_MouseDown" x:Name="exit" Foreground="#BF000000" TextDecorations="Underline" Text="Выйти" HorizontalAlignment="Center" Width="50" Height="30" FontSize="14" RenderTransformOrigin="0.5,4.617" Margin="147,260,143,29" />
             <Rectangle x:Name="rectangle1" Fill="#9797dc" HorizontalAlignment="Left" Height="54" Margin="76,210,0,0" Stroke="#9797dc" VerticalAlignment="Top" Width="185.5" Visibility="Hidden" RenderTransformOrigin="0.5,0.5">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
