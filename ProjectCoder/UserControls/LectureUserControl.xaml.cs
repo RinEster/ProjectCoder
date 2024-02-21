@@ -88,11 +88,7 @@ namespace ProjectCoder.UserControls
                     command.ExecuteScalar();
                     status.Text = "Изучено";
                 }
-            }
-            else
-            {
-                status.Text = "В процессе";
-            }
+            }          
         }
     }
 }
