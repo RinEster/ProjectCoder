@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,7 +25,19 @@ namespace ProjectCoder.View
         {
             InitializeComponent();
             userLogin.Text = MainWindow.loginUser;
-            
+            using (SqlConnection connection = new SqlConnection(MainWindow.ConnStrA))
+            {
+                connection.Open();
+
+                string sqlQuery = "SELECT CASE WHEN Email IS NOT NULL THEN Email ELSE '' END AS Email FROM Users WHERE Login = @userLogin";
+                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@userLogin", MainWindow.loginUser);
+
+                    string email = (string)command.ExecuteScalar();
+                    userEmail.Text = email;
+                }
+            }
         }
     }
 }
