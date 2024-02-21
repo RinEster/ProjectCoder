@@ -30,7 +30,7 @@ namespace ProjectCoder.View
         }       
        
         /// <summary>
-        /// добавление списка тестов
+        /// добавление списка тем тестов
         /// </summary>
         public void TestList()
         {

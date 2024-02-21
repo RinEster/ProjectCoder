@@ -38,6 +38,30 @@ namespace ProjectCoder.View
                     userEmail.Text = email;
                 }
             }
+            loadingStudiedLessons();
+
+
+        }
+        public void loadingStudiedLessons()
+        {
+            using (SqlConnection connection = new SqlConnection(MainWindow.ConnStrA))
+            {
+                connection.Open();
+
+                string sqlQuery = "Select StatusLesson.Lesson From StatusLesson where Login =  @userLogin";
+                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@userLogin", MainWindow.loginUser);
+                    SqlDataReader read = command.ExecuteReader();
+                    while (read.Read())
+                    {
+                        studiedLessons.Items.Add(read.GetValue(0).ToString());
+                    }
+                    
+                  
+                }
+            }       
+                              
         }
     }
 }
