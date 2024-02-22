@@ -29,7 +29,8 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="nameLectureTextBlock" VerticalAlignment="Center"  
+        <TextBlock x:Name="nameLectureTextBlock" VerticalAlignment="Center" 
+                   TextWrapping="Wrap"
                    Margin="10 5 10 5" FontSize="22"  
                    Style="{StaticResource font_style}"/>
 

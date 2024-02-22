@@ -103,30 +103,32 @@ namespace ProjectCoder.View
 
         private void forward_Click(object sender, RoutedEventArgs e)
         {
+      
             MessageBoxResult result = MessageBox.Show("Принять ответ?", "Тестирование",
             MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
-            {
-                bool res = checkAnswer();
-                if (res == true)
-                {
-                    correctAnswerCount++;
-                    responseReceivedCount++;
-                    responseReceivedLabel.Content = responseReceivedCount.ToString() + " / " + allAnswerCount.ToString();                
-                }
-                else
-                {
-                    responseReceivedCount++;
-                    responseReceivedLabel.Content = responseReceivedCount.ToString() + " / " + allAnswerCount.ToString();              
-                }
-
+            {   
                 if (count < resultTable.Rows.Count - 1)
                 {
+                    bool res = checkAnswer();
+                    if (res == true)
+                    {
+                        correctAnswerCount++;
+                        responseReceivedCount++;
+                        responseReceivedLabel.Content = responseReceivedCount.ToString() + " / " + allAnswerCount.ToString();
+                    }
+                    else
+                    {
+                        responseReceivedCount++;
+                        responseReceivedLabel.Content = responseReceivedCount.ToString() + " / " + allAnswerCount.ToString();
+                    }
                     count++; testUserControl.questionsData(nameTopic, resultTable, count);
                 }
                 else
                 {
+                    responseReceivedLabel.Content = allAnswerCount.ToString() + " / " + allAnswerCount.ToString();
                     MessageBox.Show("Тест пройден. Результат " + correctAnswerCount + " из " + allAnswerCount);
+
                 }
             }           
           

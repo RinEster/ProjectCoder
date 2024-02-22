@@ -30,7 +30,7 @@
         <TextBlock Grid.Row="0" Margin="15 14 0 0" FontSize="24" Text="Тесты" Style="{StaticResource font_style}"/>
         <Border x:Name="tBorder"  Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
             <Grid x:Name="tests">
-                <ListBox x:Name="test" SelectionChanged="test_SelectionChanged" FontFamily="Roboto" Foreground="White" FontSize="18" Margin="5 5 0 5"/>
+                <ListBox x:Name="test" SelectionChanged="test_SelectionChanged" FontFamily="Roboto" Foreground="White" FontSize="16" Margin="5 5 0 5"/>
             </Grid>
         </Border>
         <Grid x:Name="gGrid"  Grid.Row="2">
@@ -110,7 +110,8 @@
                     BorderThickness="0" 
                     Width="150" Height="30"
                     Click="forward_Click" 
-                    Margin="0 0 15 5" Visibility="Hidden"
+                    Margin="0 2 15 5" 
+                    Visibility="Hidden"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Right"
                         />

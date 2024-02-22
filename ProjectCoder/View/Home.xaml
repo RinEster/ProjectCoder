@@ -63,7 +63,7 @@
                                 <ColumnDefinition Width="360"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <ScrollViewer Grid.Column="0">
+                            <ScrollViewer Grid.Column="0" Margin="10 10">
                                 <StackPanel x:Name="news"/>
                             </ScrollViewer>
 

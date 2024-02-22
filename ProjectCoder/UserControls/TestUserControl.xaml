@@ -21,8 +21,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="nameTestTextBlock" VerticalAlignment="Center"  
-                   Margin="10 5 10 5" FontSize="22"  
+        <TextBlock x:Name="nameTestTextBlock" 
+                   TextWrapping="Wrap"
+                   VerticalAlignment="Center"  
+                   Margin="10 5 10 5" FontSize="20"  
                    Style="{StaticResource font_style}"/>
 
         <Border Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">

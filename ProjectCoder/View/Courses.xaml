@@ -29,7 +29,7 @@
         <TextBlock Grid.Row="0" Margin="15 0 0 0" FontSize="24" Text="Курсы" Style="{StaticResource font_style}"/>
         <Border  Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
             <Grid x:Name="courses">
-                <TreeView FontFamily="Roboto" Foreground="White" FontSize="18"  SelectedItemChanged="treeView_SelectedItemChanged"  x:Name="treeView"/>
+                <TreeView FontFamily="Roboto" Foreground="White" FontSize="16"  SelectedItemChanged="treeView_SelectedItemChanged"  x:Name="treeView"/>
 
             </Grid>
         </Border>     
