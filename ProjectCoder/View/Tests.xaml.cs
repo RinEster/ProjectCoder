@@ -26,7 +26,7 @@ namespace ProjectCoder.View
         public Tests()
         {
             InitializeComponent();
-            TestList();
+            TestList();          
         }       
        
         /// <summary>
@@ -52,6 +52,9 @@ namespace ProjectCoder.View
         public int count = 0;
         public int max = 0;
         public string answer ;
+        public int responseReceivedCount = 0;
+        public int correctAnswerCount = 0;
+        public int allAnswerCount = 0;
 
         /// <summary>
         /// загрузка теста по выбранной теме
@@ -83,22 +86,72 @@ namespace ProjectCoder.View
                 }   
 
                 testUserControl.questionsData(nameTopic, resultTable, count);
+                while (tests.Children.Count > 0)
+                {
+                    tests.Children.RemoveAt(0);
+                }
+                tBorder.Background = Brushes.Transparent;
                 tests.Children.Add(testUserControl);
+                allAnswerCount = resultTable.Rows.Count;
+                responseReceivedLabel.Visibility = Visibility.Visible;
+                forward.Visibility = Visibility.Visible;
+                label.Visibility = Visibility.Visible;
+            
+                gGrid.Height = 70;
             }
         }
 
         private void forward_Click(object sender, RoutedEventArgs e)
         {
-            if (count < resultTable.Rows.Count-1)
+            MessageBoxResult result = MessageBox.Show("Принять ответ?", "Тестирование",
+            MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
             {
-                count++; testUserControl.questionsData(nameTopic, resultTable, count);
-            }
+                bool res = checkAnswer();
+                if (res == true)
+                {
+                    correctAnswerCount++;
+                    responseReceivedCount++;
+                    responseReceivedLabel.Content = responseReceivedCount.ToString() + " / " + allAnswerCount.ToString();                
+                }
+                else
+                {
+                    responseReceivedCount++;
+                    responseReceivedLabel.Content = responseReceivedCount.ToString() + " / " + allAnswerCount.ToString();              
+                }
+
+                if (count < resultTable.Rows.Count - 1)
+                {
+                    count++; testUserControl.questionsData(nameTopic, resultTable, count);
+                }
+                else
+                {
+                    MessageBox.Show("Тест пройден. Результат " + correctAnswerCount + " из " + allAnswerCount);
+                }
+            }           
           
         }
 
         private void backward_Click(object sender, RoutedEventArgs e)
         {
+            
             if (count > 0) { count--; testUserControl.questionsData(nameTopic, resultTable, count); }
+        }
+
+        public bool checkAnswer()
+        {
+            bool result = false;
+            answer = resultTable.Rows[count][2].ToString();
+            string response = testUserControl.responseForVerification(answer);
+            if (response == answer)
+            {
+                result = true;
+            }
+            else
+            {
+                result = false;
+            }
+            return result;
         }
 
         /// <summary>

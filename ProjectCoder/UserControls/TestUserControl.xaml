@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectCoder.UserControls"
             mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="535" Background="Transparent">
+             d:DesignHeight="475" d:DesignWidth="545" Background="Transparent">
     <UserControl.Resources>
         <Style x:Key="font_style" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto"/>
@@ -15,13 +15,7 @@
             <Setter Property="FontSize" Value="20"/>
         </Style>
     </UserControl.Resources>
-    <Grid x:Name="goToCourses">
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#606E8C" Offset="0.0"/>
-                <GradientStop Color="#3E5F8A" Offset="1.0"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid x:Name="goToCourses" Background="Transparent">      
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
@@ -37,7 +31,7 @@
                     <RowDefinition Height="80"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock TextWrapping="Wrap" FontSize="18" Style="{StaticResource font_style}" Grid.Row="0" x:Name="question"/>
+                <TextBlock Margin="15 0 0 0" TextWrapping="Wrap" FontSize="18" Style="{StaticResource font_style}" Grid.Row="0" x:Name="question"/>
                 <Border Grid.Row="1" Margin="10 10" CornerRadius="5" Background="#FFC8C8EE">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -45,24 +39,23 @@
                             <RowDefinition Height="70"/>
                             <RowDefinition Height="70"/>
                             <RowDefinition Height="70"/>
-                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <RadioButton Grid.Row="0" x:Name="oneRadioButton">
+                        <RadioButton Margin="10 0 0 0" Grid.Row="0" x:Name="oneRadioButton">
                             <RadioButton.Content>
                                 <TextBlock TextWrapping="Wrap"  FontSize="16" x:Name="optionOne"/>
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Grid.Row="1"  x:Name="twoRadioButton">
+                        <RadioButton  Margin="10 0 0 0" Grid.Row="1"  x:Name="twoRadioButton">
                             <RadioButton.Content>
                                 <TextBlock TextWrapping="Wrap"  FontSize="16"  x:Name="optionTwo"/>
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Grid.Row="2"  x:Name="threeRadioButton">
+                        <RadioButton Margin="10 0 0 0" Grid.Row="2"  x:Name="threeRadioButton">
                             <RadioButton.Content>
                                 <TextBlock TextWrapping="Wrap"  FontSize="16"  x:Name="optionThree"/>
                             </RadioButton.Content>
                         </RadioButton>
-                        <RadioButton Grid.Row="3"  x:Name="fourRadioButton">
+                        <RadioButton Margin="10 0 0 0" Grid.Row="3"  x:Name="fourRadioButton">
                             <RadioButton.Content>
                                 <TextBlock TextWrapping="Wrap"  FontSize="16"  x:Name="optionFour"/>
                             </RadioButton.Content>
