@@ -213,14 +213,15 @@ namespace ProjectCoder
                     Value = pass
                 };
                 command.Parameters.Add(Parampass);
-                var result = command.ExecuteScalar();
 
-                // Отображение результата в MessageBox
-                if (result != null)
-                {
-                    MessageBox.Show(result.ToString(), "Результат хранимой процедуры", MessageBoxButton.OK);
-                }
-               
+
+                SqlParameter resultParameter = new SqlParameter("@result", SqlDbType.NVarChar, 50);
+                resultParameter.Direction = ParameterDirection.Output;
+                command.Parameters.Add(resultParameter);
+                command.ExecuteNonQuery();
+
+                string result = resultParameter.Value.ToString();
+                MessageBox.Show(result);
 
             }
 
