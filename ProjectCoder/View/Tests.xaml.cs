@@ -108,7 +108,7 @@ namespace ProjectCoder.View
             MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {   
-                if (count < resultTable.Rows.Count - 1)
+                if (count < resultTable.Rows.Count-1 )
                 {
                     bool res = checkAnswer();
                     if (res == true)

@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -112,13 +113,7 @@ namespace ProjectCoder
         //    Close();
         //}
 
-        private void regButton_Click(object sender, RoutedEventArgs e)
-        {
-            HomeWindow homeWindow = new HomeWindow();
-            homeWindow.Show();
-            Close();
-        }
-
+      
         private void exit_MouseDown(object sender, MouseButtonEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("Вы действительно хотите завершить работу?", "Завершение работы",
@@ -128,5 +123,108 @@ namespace ProjectCoder
                 Close();
             }           
         }
+
+
+        /// <summary>
+        /// Регистрация
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void regButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            inputValidation(loginRegTextBox.Text, passRegPassBox.Text, passRegRepPassBox.Text);
+
+            //HomeWindow homeWindow = new HomeWindow();
+            //homeWindow.Show();
+            //Close();
+        }
+
+
+        private void inputValidation(string login, string password, string dpassword)
+        {
+            string patternPass = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])\S{8,20}$"; //В пароле должна быть минимум одна цифра, одна буква(английская), большая буква и любой знак, который не цифра и не буква, максимальная длина пароля 16 символов.(И пробелы нельзя)            
+            string patternLog = @"^[a-zA-Z][a-zA-Z0-9_-]{10,50}$"; //первый символ обязательно буква, можно исп латиницу, цифры,девис и подчеркивание
+            bool check = true;
+            if (login.Length == 0)
+            {
+                check = false;              
+                loginRegTextBox.ToolTip = "Это поле обязательно для заполнения";
+            }
+            if (password.Length == 0)
+            {
+                check = false;
+                passRegPassBox.ToolTip = "Это поле обязательно для заполнения";                
+            }
+            if (dpassword.Length == 0)
+            {
+                check = false;
+                passRegRepPassBox.ToolTip = "Это поле обязательно для заполнения";
+            }
+
+
+            //Проверка входных данных
+            if (!Regex.IsMatch(login, patternLog)) //Проверяю на соответствие шаблону
+            {
+                check = false;
+                loginRegTextBox.ToolTip = "Разрешенные символы: \ncтрочные/заглавные буквы латинского алфавита,\nцифры от 0 до 9 \nдефис и подчеркивания.\n Логин должен быть не менее 10 и не более 50 символов.";
+            }
+            if (!Regex.IsMatch(password, patternPass))
+            {
+                check = false;
+                passRegPassBox.ToolTip = "В пароле должна быть минимум одна цифра,\nодна буква(английская), большая буква и любой знак,\nкоторый не цифра и не буква, максимальная длина пароля 20 символов.\nМинимальная длина пароля 8 символов.\nТак же в пароле не может быть пробелов.";
+            }
+
+            if(password!=dpassword)
+            {
+                check = false;
+                passRegPassBox.ToolTip = "Пароли должны совпадать";
+                passRegRepPassBox.ToolTip = "Пароли должны совпадать";
+            }
+
+            if (check == true)
+            {
+                
+                registrationUser(login, password);
+            }
+        }
+
+        private void registrationUser(string login, string pass)
+        {
+          //  bool check = true;
+            string sqlExpressionEmail = "dbo.RegistrationCheckForAccountAvailability";
+
+            using (SqlConnection connection = new SqlConnection(ConnStrA)) 
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(sqlExpressionEmail, connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter Paramlog = new SqlParameter
+                {
+                    ParameterName = "@login",
+                    Value = login
+                };
+                command.Parameters.Add(Paramlog);
+
+                SqlParameter Parampass = new SqlParameter
+                {
+                    ParameterName = "@password",
+                    Value = pass
+                };
+                command.Parameters.Add(Parampass);
+                var result = command.ExecuteScalar();
+
+                // Отображение результата в MessageBox
+                if (result != null)
+                {
+                    MessageBox.Show(result.ToString(), "Результат хранимой процедуры", MessageBoxButton.OK);
+                }
+               
+
+            }
+
+        }
+
     }
 }
