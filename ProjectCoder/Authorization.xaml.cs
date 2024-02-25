@@ -134,10 +134,10 @@ namespace ProjectCoder
         {
 
             inputValidation(loginRegTextBox.Text, passRegPassBox.Text, passRegRepPassBox.Text);
-
-            //HomeWindow homeWindow = new HomeWindow();
-            //homeWindow.Show();
-            //Close();
+            loginUser = loginRegTextBox.Text;
+            HomeWindow homeWindow = new HomeWindow();
+            homeWindow.Show();
+            Close();
         }
 
 
