@@ -77,7 +77,8 @@
                          Width="200"
                          Height="40"
                          Margin="5"
-                         Background="#e8e8f7"/>
+                         Background="#e8e8f7"
+                         x:Name="changeEmail"/>
                 
                 <Button Content="Изменить"
                         Grid.Column="1"
@@ -89,8 +90,8 @@
                         BorderThickness="0" 
                         Width="150" Height="50"
                         Margin="5"
-                        x:Name="changeTheLoginButton"
-                        Click="changeTheLoginButton_Click"
+                        x:Name="changeTheLoginEmailButton"
+                        Click="changeTheLoginEmailButton_Click"
                         />
             </Grid>
         </Border>
@@ -140,31 +141,36 @@
                          Width="200"
                          Height="40"
                          Margin="5"
-                         Background="#e8e8f7"/>
+                         Background="#e8e8f7"
+                         x:Name="passTextBox"/>
                 <TextBox Grid.Row="2"
                          Grid.Column="1"
                          Width="200"
                          Height="40"
                          Margin="5"
-                         Background="#e8e8f7"/>
+                         Background="#e8e8f7"
+                         x:Name="newPassTextBox"/>
 
                 <TextBox Grid.Row="3"
                          Grid.Column="1"
                          Width="200"
                          Height="40"
                          Margin="5"
-                         Background="#e8e8f7"/>
+                         Background="#e8e8f7"
+                         x:Name="repNewPassTextBox"/>
 
                 <Button Content="Изменить"
                         Grid.Column="1"
                         Grid.Row="4"
                         FontFamily="SemiBold" 
-                            FontSize="20"
-                            Foreground="White" 
-                            Background="#8585d6" 
-                            BorderThickness="0" 
-                            Width="150" Height="50"
-                            Margin="5"
+                        FontSize="20"
+                        Foreground="White" 
+                        Background="#8585d6" 
+                        BorderThickness="0" 
+                        Width="150" Height="50"
+                        Margin="5"
+                        x:Name="changePassButton"
+                        Click="changePassButton_Click"
                         />
             </Grid>
         </Border>

@@ -29,24 +29,33 @@ namespace ProjectCoder.View
         }
 
 
-        private void changeTheLoginButton_Click(object sender, RoutedEventArgs e)
+        private void changeTheLoginEmailButton_Click(object sender, RoutedEventArgs e)
         {
-            string patternPass = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])\S{8,20}$"; //В пароле должна быть минимум одна цифра, одна буква(английская), большая буква и любой знак, который не цифра и не буква, максимальная длина пароля 16 символов.(И пробелы нельзя)            
             string patternLog = @"^[a-zA-Z][a-zA-Z0-9_-]{10,50}$"; //первый символ обязательно буква, можно исп латиницу, цифры,девис и подчеркивание
-          
+            string patternPass = @"[A-Za-z0-9._%+-]+@(?:yandex|mail|gmail)\.(?:ru|com)";
             if (changeLogin.Text!="")
             {
                 if(!Regex.IsMatch(changeLogin.Text, patternLog))
                 {
-                    changeLogin.ToolTip = "В пароле должна быть минимум одна цифра,\nодна буква(английская), большая буква и любой знак,\nкоторый не цифра и не буква, максимальная длина пароля 20 символов.\nМинимальная длина пароля 8 символов.\nТак же в пароле не может быть пробелов.";
+                    changeLogin.ToolTip = "Разрешенные символы: \ncтрочные/заглавные буквы латинского алфавита,\nцифры от 0 до 9 \nдефис и подчеркивания.\n Логин должен быть не менее 10 и не более 50 символов.";
                 }
                 else
                 {
                     changeUserName(MainWindow.loginUser, changeLogin.Text);
                 }
             }
-       
-            
+            if (changeEmail.Text != "")
+            {
+                if (!Regex.IsMatch(changeEmail.Text, patternPass))
+                {
+                    changeEmail.ToolTip = "Разрешены почты yandex, mail, gmail";
+                }
+                else
+                {
+                    changeUserEmail(MainWindow.loginUser, changeEmail.Text);
+                }                    
+            }
+
         }
 
         /// <summary>
@@ -80,6 +89,44 @@ namespace ProjectCoder.View
                 }
 
             }
+        }
+
+        /// <summary>
+        /// изменение почты пользователя
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="newlogin"></param>
+        private void changeUserEmail(string login, string email)
+        {
+            string sqlExpressionEmail = "dbo.UpdateEmail";
+
+            using (SqlConnection connection = new SqlConnection(MainWindow.ConnStrA))
+            {
+                using (SqlCommand command = new SqlCommand(sqlExpressionEmail, connection))
+                {
+                    connection.Open();
+
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter("@login", login));
+                    command.Parameters.Add(new SqlParameter("@newemail", email));
+
+                    SqlParameter resultParameter = new SqlParameter("@result", SqlDbType.NVarChar, 50);
+                    resultParameter.Direction = ParameterDirection.Output;
+                    command.Parameters.Add(resultParameter);
+
+                    command.ExecuteNonQuery();
+
+                    string result = resultParameter.Value.ToString();
+                    MessageBox.Show(result);
+                }
+
+            }
+        }
+
+        private void changePassButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
