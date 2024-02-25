@@ -117,7 +117,7 @@ namespace ProjectCoder.View
 
                     command.ExecuteNonQuery();
 
-                    string result = resultParameter.Value.ToString();
+                    string result = resultParameter.Value.ToString();                    
                     MessageBox.Show(result);
                 }
 
@@ -126,7 +126,68 @@ namespace ProjectCoder.View
 
         private void changePassButton_Click(object sender, RoutedEventArgs e)
         {
+            string patternPass = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])\S{8,20}$";
+            bool check = true;
+            if (passTextBox.Text=="")
+            {
+                passTextBox.ToolTip = "Это поле обязательно при изменении пароля";
+                check = false;
+            }
+            if (newPassTextBox.Text == "")
+            {
+                newPassTextBox.ToolTip = "Это поле обязательно при изменении пароля";
+                check = false;
+            }
+            if (repNewPassTextBox.Text == "")
+            {
+                repNewPassTextBox.ToolTip = "Это поле обязательно при изменении пароля";
+                check = false;
+            }
+            if (!Regex.IsMatch(newPassTextBox.Text, patternPass))
+            {
+                newPassTextBox.ToolTip = "В пароле должна быть минимум одна цифра,\nодна буква(английская), большая буква и любой знак,\nкоторый не цифра и не буква, максимальная длина пароля 20 символов.\nМинимальная длина пароля 8 символов.\nТак же в пароле не может быть пробелов.";
+                check = false;
+            }
+            if (newPassTextBox.Text!=repNewPassTextBox.Text)
+            {
+                newPassTextBox.ToolTip = "Пароли должны совпадать";
+                repNewPassTextBox.ToolTip = "Пароли должны совпадать";
+                check = false;
+            }
 
+            if (check == true)
+            {
+                changePassWord(MainWindow.loginUser, newPassTextBox.Text);
+            }
+        }
+
+
+        private void changePassWord(string login, string pass)
+        {
+            string sqlExpressionEmail = "dbo.RegistrationPasswordUpdate";
+
+            using (SqlConnection connection = new SqlConnection(MainWindow.ConnStrA))
+            {
+                using (SqlCommand command = new SqlCommand(sqlExpressionEmail, connection))
+                {
+                    connection.Open();
+
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter("@login", login));
+                    command.Parameters.Add(new SqlParameter("@password", pass));
+
+                    SqlParameter resultParameter = new SqlParameter("@res", SqlDbType.NVarChar, 50);
+                    resultParameter.Direction = ParameterDirection.Output;
+                    command.Parameters.Add(resultParameter);
+
+                    command.ExecuteNonQuery();
+
+                    string result = resultParameter.Value.ToString();
+                    MessageBox.Show(result);
+                }
+
+            }
         }
     }
 }
