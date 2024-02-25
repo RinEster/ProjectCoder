@@ -161,7 +161,11 @@ namespace ProjectCoder.View
             }
         }
 
-
+        /// <summary>
+        /// изменение пароля пользователем
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="pass"></param>
         private void changePassWord(string login, string pass)
         {
             string sqlExpressionEmail = "dbo.RegistrationPasswordUpdate";

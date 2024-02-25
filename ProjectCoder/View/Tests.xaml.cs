@@ -108,21 +108,30 @@ namespace ProjectCoder.View
             MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {   
-                if (count < resultTable.Rows.Count-1 )
+                if (count <= resultTable.Rows.Count-1 )
                 {
                     bool res = checkAnswer();
                     if (res == true)
-                    {
-                        correctAnswerCount++;
+                    {                       
                         responseReceivedCount++;
                         responseReceivedLabel.Content = responseReceivedCount.ToString() + " / " + allAnswerCount.ToString();
+                        correctAnswerCount++;
                     }
                     else
                     {
                         responseReceivedCount++;
                         responseReceivedLabel.Content = responseReceivedCount.ToString() + " / " + allAnswerCount.ToString();
                     }
-                    count++; testUserControl.questionsData(nameTopic, resultTable, count);
+                    if (count == resultTable.Rows.Count - 1)
+                    {
+                        count++;
+                    }
+                    else if(count< resultTable.Rows.Count - 1)
+                    {
+                        count++;
+                        testUserControl.questionsData(nameTopic, resultTable, count);
+                    }
+                   
                 }
                 else
                 {
@@ -130,15 +139,11 @@ namespace ProjectCoder.View
                     MessageBox.Show("Тест пройден. Результат " + correctAnswerCount + " из " + allAnswerCount);
 
                 }
+
             }           
           
         }
 
-        private void backward_Click(object sender, RoutedEventArgs e)
-        {
-            
-            if (count > 0) { count--; testUserControl.questionsData(nameTopic, resultTable, count); }
-        }
 
         public bool checkAnswer()
         {
@@ -156,17 +161,17 @@ namespace ProjectCoder.View
             return result;
         }
 
-        /// <summary>
-        /// проверка правильности ответа
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void check_Click(object sender, RoutedEventArgs e)
-        {
-            answer = resultTable.Rows[count][2].ToString();
-            string response = testUserControl.responseForVerification(answer);
-            if (response == answer) MessageBox.Show("Правильный ответ");
-            else MessageBox.Show("Ошибка");
-        }
+        ///// <summary>
+        ///// проверка правильности ответа
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void check_Click(object sender, RoutedEventArgs e)
+        //{
+        //    answer = resultTable.Rows[count][2].ToString();
+        //    string response = testUserControl.responseForVerification(answer);
+        //    if (response == answer) MessageBox.Show("Правильный ответ");
+        //    else MessageBox.Show("Ошибка");
+        //}
     }
 }
