@@ -28,7 +28,12 @@ namespace ProjectCoder
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+           MessageBoxResult result = MessageBox.Show("Закрыть приложение?", "Завершение работы",
+           MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                Close();
+            }
         }
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {          

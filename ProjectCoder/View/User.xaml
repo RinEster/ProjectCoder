@@ -18,13 +18,13 @@
 
         <Style x:Key="TabItemStyle" TargetType="TabItem">
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="#ababe3"/>
+            <Setter Property="Foreground" Value="#674188"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="Margin" Value="5 5"/>
             <Setter Property="Width" Value="170"/>
             <Setter Property="Padding" Value="15 15"/>
-            <Setter Property="FontWeight" Value="400"/>         
+            <Setter Property="FontWeight" Value="400"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -63,36 +63,38 @@
             </Setter>
         </Style>
 
-    
+
 
     </UserControl.Resources>
-    <Grid >
-        <Grid.Background>
+    <Grid Background="White">
+        <!--<Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="#606E8C" Offset="0.0"/>
                 <GradientStop Color="#3E5F8A" Offset="1.0"/>
             </LinearGradientBrush>
-        </Grid.Background>
+        </Grid.Background>-->
         <Grid.RowDefinitions>
             <RowDefinition Height="115"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Ellipse Grid.Row="0" Width="100" Height="100" Fill="LightBlue"/>
-        <Image Stretch="None" Width="100" Height="100" Source="/ProjectCoder;component/Assets/progr164.png"/>
+        <Ellipse Grid.Row="0" Width="100" Height="100" Fill="#e6e5ea"/>
+        <Image Stretch="None" Width="80" Height="80" Source="/ProjectCoder;component/Assets/user80.png" Margin="218,19,237,16"/>
         <TextBlock HorizontalAlignment="Center"  
                    Style="{StaticResource font_style}"
                    Grid.Row="1"  
                    FontSize="25"                   
                    Text="Пользователь"
-                   x:Name="userLogin"/>
+                   x:Name="userLogin"
+                    Foreground="#674188"/>
         <TextBlock HorizontalAlignment="Center"  
                    Style="{StaticResource font_style}"
                    Grid.Row="2"  
                    FontSize="20"                   
                    Text="user@gmail.com"
-                   x:Name="userEmail"/>
+                   x:Name="userEmail"
+                    Foreground="#674188"/>
         <Grid Grid.Row="3">
             <!--<Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -100,23 +102,31 @@
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>-->
-            <TabControl HorizontalAlignment="Left" Background="#ababe3"  Width="350" Height="350" Margin="20 0">
+            <TabControl HorizontalAlignment="Center" Background="#ababe3"  Width="450" Height="350" Margin="20 0">
                 <TabItem Header="Изученные лекции" Style="{DynamicResource TabItemStyle}">
-                    <Grid Background="#D5D5F1">
-                        <ListBox x:Name="studiedLessons"   VerticalAlignment="Top" FontFamily="Roboto" Foreground="#606E8C" FontSize="12"/>
+                    <Grid Background="#DEDDEE">
+                        <ListBox x:Name="studiedLessons"   VerticalAlignment="Top" FontFamily="Roboto" 
+                                 Foreground="#674188" FontSize="14"/>
                     </Grid>
                 </TabItem>
                 <TabItem Header="Пройденные тесты" Style="{DynamicResource TabItemStyle}">
                     <Grid>
-                        <Grid Background="#D5D5F1">
-                            <ListBox x:Name="test"   VerticalAlignment="Top" FontFamily="Roboto" Foreground="#606E8C" FontSize="12"/>
+                        <Grid Background="#DEDDEE">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="80"/>
+                            </Grid.ColumnDefinitions>
+                            <ListBox Grid.Column="0" x:Name="test"   VerticalAlignment="Top" 
+                                     FontFamily="Roboto" Foreground="#674188" FontSize="14"/>
+                            <ListBox Grid.Column="1" x:Name="testResult"   VerticalAlignment="Top" 
+                                     FontFamily="Roboto" Foreground="#674188" FontSize="14"/>
                         </Grid>
                     </Grid>
                 </TabItem>
 
 
             </TabControl>
-            
+
 
             <!--<TextBlock Grid.Row="0" Margin="20 0 0 0" Text="Изученные лекции" Style="{StaticResource font_style}"/>
             <Border Grid.Row="1" CornerRadius="5" Margin="10 10" 
@@ -128,7 +138,7 @@
             <Border HorizontalAlignment="Left" Grid.Row="3" CornerRadius="5" Width="350" Margin="10 10" Background="#abdaff">
                 <TextBlock Text="В процессе разработки"/>
             </Border>-->
-            <Image Opacity="0.2" HorizontalAlignment="Left" Height="100" Margin="400,34,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Source="/ProjectCoder;component/Assets/python60.png">
+            <Image Opacity="0.2" HorizontalAlignment="Left" Height="84" Margin="402,-83,0,0" VerticalAlignment="Top" Width="98" RenderTransformOrigin="0.5,0.5" Source="/ProjectCoder;component/Assets/python60.png">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -138,18 +148,18 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <Image Opacity="0.2" HorizontalAlignment="Left" Height="100" Margin="412,195,0,0" VerticalAlignment="Top" Width="100" RenderTransformOrigin="0.5,0.5" Source="/ProjectCoder;component/Assets/c++50.png">
+            <Image Opacity="0.2" HorizontalAlignment="Left" Height="68" Margin="352,-156,0,0" VerticalAlignment="Top" Width="69" RenderTransformOrigin="0.5,0.5" Source="/ProjectCoder;component/Assets/c++50.png">
                 <Image.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
                         <SkewTransform/>
-                        <RotateTransform Angle="16.541"/>
+                        <RotateTransform Angle="-8.508"/>
                         <TranslateTransform/>
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
         </Grid>
-        <Image Opacity="0.2" HorizontalAlignment="Left" Height="100" Margin="403,68,0,0" VerticalAlignment="Top" Width="100" Source="/ProjectCoder;component/Assets/csharplogo50.png" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="3">
+        <Image Opacity="0.2" HorizontalAlignment="Left" Height="62" Margin="450,17,0,0" VerticalAlignment="Top" Width="70" Source="/ProjectCoder;component/Assets/csharplogo50.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -159,7 +169,7 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Opacity="0.2" HorizontalAlignment="Left" Height="100" Margin="29,22,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="99" Source="/ProjectCoder;component/Assets/sql60.png" RenderTransformOrigin="0.5,0.5">
+        <Image Opacity="0.2" HorizontalAlignment="Left" Height="62" Margin="18,11,0,0" VerticalAlignment="Top" Width="66" Source="/ProjectCoder;component/Assets/sql60.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

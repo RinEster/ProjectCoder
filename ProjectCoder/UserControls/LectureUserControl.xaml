@@ -16,13 +16,7 @@
             <Setter Property="FontSize" Value="20"/>
         </Style>
     </UserControl.Resources>
-    <Grid x:Name="goToCourses">
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#606E8C" Offset="0.0"/>
-                <GradientStop Color="#3E5F8A" Offset="1.0"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid x:Name="goToCourses" Background="White">       
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
@@ -31,17 +25,18 @@
 
         <TextBlock x:Name="nameLectureTextBlock" VerticalAlignment="Center" 
                    TextWrapping="Wrap"
+                    Foreground="#674188"
                    Margin="10 5 10 5" FontSize="22"  
                    Style="{StaticResource font_style}"/>
 
-        <Border Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
+        <Border Grid.Row="1" Margin="10" Background="#DEDDEE" CornerRadius="10">
             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
                 <TextBlock x:Name="lecture" Margin="5" 
                            TextWrapping="WrapWithOverflow" 
                            Text="{Binding lecture}"
-                           FontSize="20"  Foreground="White"/>
+                           FontSize="20"  Foreground="#674188"/>
             </ScrollViewer>
         </Border>
-        <TextBlock x:Name="status" MouseDown="status_MouseDown" Text="Завершить?" Grid.Row="2"  Foreground="White" FontSize="18" HorizontalAlignment="Right" Margin="15 10"/>
+        <TextBlock x:Name="status" MouseDown="status_MouseDown" Foreground="#674188" Text="Завершить?" Grid.Row="2"  FontSize="18" HorizontalAlignment="Right" Margin="15 10"/>
     </Grid>
 </UserControl>

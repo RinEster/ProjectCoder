@@ -68,7 +68,7 @@ namespace ProjectCoder.View
                 }
 
             }
-        }        
+        }
     }
 }
 

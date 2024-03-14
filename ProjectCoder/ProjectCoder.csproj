@@ -258,6 +258,13 @@
     <Resource Include="Assets\python60.png" />
     <Resource Include="Assets\c++50.png" />
     <Resource Include="Assets\tests.png" />
+    <Resource Include="Assets\code64.png" />
+    <Resource Include="Assets\binarycode64.png" />
+    <Resource Include="Assets\sourcecode96.png" />
+    <Resource Include="Assets\computerchip64.png" />
+    <Resource Include="Assets\securecomputer64.png" />
+    <Resource Include="Assets\binarycode64 %281%29.png" />
+    <Resource Include="Assets\user80.png" />
     <Content Include="News.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

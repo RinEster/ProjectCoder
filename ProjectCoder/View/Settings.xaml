@@ -16,21 +16,17 @@
             <Setter Property="FontSize" Value="20"/>
         </Style>
     </UserControl.Resources>
-    <Grid >
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#606E8C" Offset="0.0"/>
-                <GradientStop Color="#3E5F8A" Offset="1.0"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid Background="White" > 
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="200"/>
             <RowDefinition Height="250"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Margin="15 0 0 0" FontSize="24" Text="Настройки" Style="{StaticResource font_style}"/>
-        <Border Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
+        <TextBlock Grid.Row="0" Margin="15 0 0 0" FontSize="24" 
+                   Foreground="#674188"
+                   Text="Настройки" Style="{StaticResource font_style}"/>
+        <Border Grid.Row="1" Margin="10" Background="#DEDDEE" CornerRadius="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
@@ -46,6 +42,7 @@
                            Grid.Column="0"
                            Margin="5" 
                            VerticalAlignment="Top" 
+                           Foreground="#674188"
                            Text="Редактировать профиль" 
                            FontSize="22" 
                            TextDecorations="Underline"
@@ -54,6 +51,7 @@
                 <TextBlock Margin="5" 
                            Grid.Row="1"
                            Grid.Column="0"
+                           Foreground="#674188"
                            FontSize="18" 
                            Style="{StaticResource font_style}"
                            Text="Изменить логин"/>                
@@ -61,6 +59,7 @@
                 <TextBlock Margin="5"  
                            Grid.Row="2"
                            Grid.Column="0"
+                           Foreground="#674188"
                            FontSize="18" 
                            Style="{StaticResource font_style}"
                            Text="Изменить электронную почту"/>
@@ -69,7 +68,7 @@
                          Width="200"
                          Height="40"
                          Margin="5"
-                         Background="#e8e8f7"
+                         Background="White"
                          x:Name="changeLogin"/>        
 
                 <TextBox Grid.Row="2"
@@ -77,7 +76,7 @@
                          Width="200"
                          Height="40"
                          Margin="5"
-                         Background="#e8e8f7"
+                         Background="White"
                          x:Name="changeEmail"/>
                 
                 <Button Content="Изменить"
@@ -86,7 +85,7 @@
                         FontFamily="SemiBold" 
                         FontSize="20"
                         Foreground="White" 
-                        Background="#8585d6" 
+                        Background="#ababe3" 
                         BorderThickness="0" 
                         Width="150" Height="50"
                         Margin="5"
@@ -95,7 +94,7 @@
                         />
             </Grid>
         </Border>
-        <Border Grid.Row="2" Margin="10" Background="#ababe3" CornerRadius="10">
+        <Border Grid.Row="2" Margin="10" Background="#DEDDEE" CornerRadius="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
@@ -112,6 +111,7 @@
                            Grid.Column="0"
                            Margin="5" 
                            VerticalAlignment="Top" 
+                           Foreground="#674188"
                            Text="Изменить пароль" 
                            FontSize="22" 
                            TextDecorations="Underline"
@@ -120,6 +120,7 @@
                 <TextBlock Margin="5" 
                            Grid.Row="1"
                            Grid.Column="0"
+                           Foreground="#674188"
                            FontSize="18" 
                            Style="{StaticResource font_style}"
                            Text="Введите старый пароль"/>
@@ -127,12 +128,14 @@
                 <TextBlock Margin="5"  
                            Grid.Row="2"
                            Grid.Column="0"
+                           Foreground="#674188"
                            FontSize="18" 
                            Style="{StaticResource font_style}"
                            Text="Введите новый пароль"/>
                 <TextBlock Margin="5"  
                            Grid.Row="3"
                            Grid.Column="0"
+                           Foreground="#674188"
                            FontSize="18" 
                            Style="{StaticResource font_style}"
                            Text="Подтвердите новый пароль"/>
@@ -141,14 +144,14 @@
                          Width="200"
                          Height="40"
                          Margin="5"
-                         Background="#e8e8f7"
+                         Background="White"
                          x:Name="passTextBox"/>
                 <TextBox Grid.Row="2"
                          Grid.Column="1"
                          Width="200"
                          Height="40"
                          Margin="5"
-                         Background="#e8e8f7"
+                         Background="White"
                          x:Name="newPassTextBox"/>
 
                 <TextBox Grid.Row="3"
@@ -156,7 +159,7 @@
                          Width="200"
                          Height="40"
                          Margin="5"
-                         Background="#e8e8f7"
+                         Background="White"
                          x:Name="repNewPassTextBox"/>
 
                 <Button Content="Изменить"
@@ -165,7 +168,7 @@
                         FontFamily="SemiBold" 
                         FontSize="20"
                         Foreground="White" 
-                        Background="#8585d6" 
+                        Background="#ababe3" 
                         BorderThickness="0" 
                         Width="150" Height="50"
                         Margin="5"

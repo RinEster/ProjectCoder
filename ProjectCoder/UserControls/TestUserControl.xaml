@@ -23,18 +23,21 @@
 
         <TextBlock x:Name="nameTestTextBlock" 
                    TextWrapping="Wrap"
+                   Foreground="#674188"
                    VerticalAlignment="Center"  
                    Margin="10 5 10 5" FontSize="20"  
                    Style="{StaticResource font_style}"/>
 
-        <Border Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
+        <Border Grid.Row="1" Margin="10" Background="#DEDDEE" CornerRadius="10">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Margin="15 0 0 0" TextWrapping="Wrap" FontSize="18" Style="{StaticResource font_style}" Grid.Row="0" x:Name="question"/>
-                <Border Grid.Row="1" Margin="10 10" CornerRadius="5" Background="#FFC8C8EE">
+                <TextBlock Margin="15 0 0 0" 
+                           Foreground="#674188"
+                           TextWrapping="Wrap" FontSize="18" Style="{StaticResource font_style}" Grid.Row="0" x:Name="question"/>
+                <Border Grid.Row="1" Margin="10 10" CornerRadius="5" Background="#f5f4fa">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="70"/>
@@ -44,22 +47,22 @@
                         </Grid.RowDefinitions>
                         <RadioButton Margin="10 0 0 0" Grid.Row="0" x:Name="oneRadioButton">
                             <RadioButton.Content>
-                                <TextBlock TextWrapping="Wrap"  FontSize="16" x:Name="optionOne"/>
+                                <TextBlock TextWrapping="Wrap" Foreground="#674188" FontSize="16" x:Name="optionOne"/>
                             </RadioButton.Content>
                         </RadioButton>
                         <RadioButton  Margin="10 0 0 0" Grid.Row="1"  x:Name="twoRadioButton">
                             <RadioButton.Content>
-                                <TextBlock TextWrapping="Wrap"  FontSize="16"  x:Name="optionTwo"/>
+                                <TextBlock TextWrapping="Wrap" Foreground="#674188" FontSize="16"  x:Name="optionTwo"/>
                             </RadioButton.Content>
                         </RadioButton>
                         <RadioButton Margin="10 0 0 0" Grid.Row="2"  x:Name="threeRadioButton">
                             <RadioButton.Content>
-                                <TextBlock TextWrapping="Wrap"  FontSize="16"  x:Name="optionThree"/>
+                                <TextBlock TextWrapping="Wrap" Foreground="#674188"  FontSize="16"  x:Name="optionThree"/>
                             </RadioButton.Content>
                         </RadioButton>
                         <RadioButton Margin="10 0 0 0" Grid.Row="3"  x:Name="fourRadioButton">
                             <RadioButton.Content>
-                                <TextBlock TextWrapping="Wrap"  FontSize="16"  x:Name="optionFour"/>
+                                <TextBlock TextWrapping="Wrap" Foreground="#674188" FontSize="16"  x:Name="optionFour"/>
                             </RadioButton.Content>
                         </RadioButton>
                        

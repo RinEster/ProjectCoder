@@ -15,98 +15,34 @@
             <Setter Property="FontSize" Value="20"/>
         </Style>
     </UserControl.Resources>
-    <Grid >
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#606E8C" Offset="0.0"/>
-                <GradientStop Color="#3E5F8A" Offset="1.0"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid Background="White">       
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="0.9*"/>
             <RowDefinition  Height="0.075*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Margin="15 14 0 0" FontSize="24" Text="Тесты" Style="{StaticResource font_style}"/>
-        <Border x:Name="tBorder"  Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
+        <TextBlock Grid.Row="0" Margin="15 14 0 0" 
+                   FontSize="24" Text="Тесты"
+                   Foreground="#674188"
+                   Style="{StaticResource font_style}"/>
+        <Border x:Name="tBorder"  Grid.Row="1" Margin="10" Background="#d7d4e7" CornerRadius="10">
             <Grid x:Name="tests">
-                <ListBox x:Name="test" SelectionChanged="test_SelectionChanged" FontFamily="Roboto" Foreground="White" FontSize="16" Margin="5 5 0 5"/>
+                <ListBox x:Name="test" SelectionChanged="test_SelectionChanged" FontFamily="Roboto" Foreground="#674188" FontSize="16" Margin="5 5 0 5"/>
             </Grid>
         </Border>
         <Grid x:Name="gGrid"  Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-          
+                <ColumnDefinition Width="*"/>          
                 <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Label Margin="10 0 0 0"  x:Name="label"                  
-                   Grid.Column="0" Content="Пройдено: " 
-                   FontSize="16" 
-                   Foreground="White"
-                   FontFamily="Roboto"
-                   Visibility="Hidden"
-                   />
-                <Label  x:Name="responseReceivedLabel"
-                        FontSize="16" 
-                        Foreground="White"
-                        FontFamily="Roboto"
-                        Grid.Column="1" />
-            </Grid>
+            </Grid.ColumnDefinitions>              
            
-            <!--<Label x:Name="correctAnswerLabel" Margin="10 0 0 10"
-                   VerticalAlignment="Bottom" 
-                   Grid.Column="0" Content="Правильных: " 
-                   FontSize="16" 
-                   Foreground="White"
-                   FontFamily="Roboto"/>-->
-            <!--<Button Content="Назад"
-                                x:Name="backward"
-                       Grid.Column="0"
-                        
-                           FontFamily="SemiBold" 
-                            FontSize="20"
-                            Foreground="White" 
-                            Background="#8585d6" 
-                            BorderThickness="0" 
-                            Width="150" Height="50"
-                            Margin="5" Click="backward_Click" 
-                        />-->
-            <!--<Button Content="Проверить"
-                                x:Name="check"
-                       Grid.Column="1"
-                        
-                        FontFamily="SemiBold" 
-                            FontSize="20"
-                            Foreground="White" 
-                            Background="#8585d6" 
-                            BorderThickness="0" 
-                            Width="150" Height="50"
-                            Margin="5" Click="check_Click" 
-                        />-->
-            <!--<Button Content="Далее"
-                                x:Name="forward"
-                       Grid.Column="2"
-                        
-                        FontFamily="SemiBold" 
-                            FontSize="20"
-                            Foreground="White" 
-                            Background="#8585d6" 
-                            BorderThickness="0" 
-                            Width="150" Height="50"
-                            Margin="5" Click="forward_Click" 
-                        />-->
             <Button Content="Принять"
                     x:Name="forward"
                     Grid.Column="1"                     
                     FontFamily="SemiBold" 
                     FontSize="15"
                     Foreground="White" 
-                    Background="#8585d6" 
+                    Background="#674188" 
                     BorderThickness="0" 
                     Width="150" Height="30"
                     Click="forward_Click" 

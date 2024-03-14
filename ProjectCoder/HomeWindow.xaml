@@ -80,13 +80,13 @@
     </Window.DataContext>
     <Grid>
 
-        <Grid Background="Black">
+        <Grid Background="#372f2d">
             <!--сюда переключатель-->
 
             <Grid x:Name="navPanel"
                   HorizontalAlignment="Left"
                   Width="65"
-                  Background="#2e333a">
+                  Background="#372f2d">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="63*"/>
                     <ColumnDefinition Width="*"/>
@@ -193,7 +193,7 @@
 
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="ttHome"
-                                         Content="Home"
+                                         Content="Главная"
                                          Style="{StaticResource toolTipStyle}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
@@ -218,7 +218,7 @@
 
                 <ListViewItem.ToolTip>
                                 <ToolTip x:Name="ttUser"
-                                         Content="User"
+                                         Content="Профиль"
                                          Style="{StaticResource toolTipStyle}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
@@ -242,35 +242,7 @@
 
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="ttCourses"
-                                         Content="Courses"
-                                         Style="{StaticResource toolTipStyle}"/>
-                            </ListViewItem.ToolTip>
-                        </ListViewItem>
-                        <!--Настройки-->
-                     
-                            <ListViewItem HorizontalAlignment="Left"
-                                      Margin="0 0 0 15" MouseEnter="ListViewItem_MouseEnter">
-                          
-                                <StackPanel Orientation="Horizontal"
-                                        Width="230">
-                                <Button Background="Transparent" BorderBrush="Transparent"
-                                        Height="45" x:Name="settingsButton" Click="settingsButton_Click">
-                                <Button.Content>
-                                        <Image Source="Assets/settings.png" 
-                                       Stretch="None"
-                                       Margin="-7 0 0 0"/>
-                                    </Button.Content>
-
-                                </Button>
-                                
-                                <TextBlock Text="Настройки"
-                                           Margin="15 0 0 0"
-                                           Style="{StaticResource font_style}"/>
-                            </StackPanel>
-
-                            <ListViewItem.ToolTip>
-                                <ToolTip x:Name="ttSettings"
-                                         Content="Settings"
+                                         Content="Курсы"
                                          Style="{StaticResource toolTipStyle}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
@@ -298,10 +270,39 @@
 
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="ttTests"
-                                         Content="Tests"
+                                         Content="Тесты"
                                          Style="{StaticResource toolTipStyle}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>
+                        <!--Настройки-->
+                     
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Margin="0 0 0 15" MouseEnter="ListViewItem_MouseEnter">
+                          
+                                <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                                <Button Background="Transparent" BorderBrush="Transparent"
+                                        Height="45" x:Name="settingsButton" Click="settingsButton_Click">
+                                <Button.Content>
+                                        <Image Source="Assets/settings.png" 
+                                       Stretch="None"
+                                       Margin="-7 0 0 0"/>
+                                    </Button.Content>
+
+                                </Button>
+                                
+                                <TextBlock Text="Настройки"
+                                           Margin="15 0 0 0"
+                                           Style="{StaticResource font_style}"/>
+                            </StackPanel>
+
+                            <ListViewItem.ToolTip>
+                                <ToolTip x:Name="ttSettings"
+                                         Content="Настройки"
+                                         Style="{StaticResource toolTipStyle}"/>
+                            </ListViewItem.ToolTip>
+                        </ListViewItem>
+                      
                         <!--Выход-->
                         <ListViewItem HorizontalAlignment="Left"                                      
                                       Margin="0 125 0 15" 
@@ -324,7 +325,7 @@
 
                             <ListViewItem.ToolTip>
                                 <ToolTip x:Name="ttExit"
-                                         Content="Exit"
+                                         Content="Выход"
                                          Style="{StaticResource toolTipStyle}"/>
                             </ListViewItem.ToolTip>
                         </ListViewItem>

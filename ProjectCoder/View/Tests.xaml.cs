@@ -52,7 +52,6 @@ namespace ProjectCoder.View
         public int count = 0;
         public int max = 0;
         public string answer ;
-        public int responseReceivedCount = 0;
         public int correctAnswerCount = 0;
         public int allAnswerCount = 0;
 
@@ -92,10 +91,8 @@ namespace ProjectCoder.View
                 }
                 tBorder.Background = Brushes.Transparent;
                 tests.Children.Add(testUserControl);
-                allAnswerCount = resultTable.Rows.Count;
-                responseReceivedLabel.Visibility = Visibility.Visible;
-                forward.Visibility = Visibility.Visible;
-                label.Visibility = Visibility.Visible;
+                allAnswerCount = resultTable.Rows.Count;                
+                forward.Visibility = Visibility.Visible;               
             
                 gGrid.Height = 70;
             }
@@ -107,43 +104,38 @@ namespace ProjectCoder.View
             MessageBoxResult result = MessageBox.Show("Принять ответ?", "Тестирование",
             MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
-            {   
-                if (count <= resultTable.Rows.Count-1 )
+            {
+                bool res = checkAnswer();
+                if (res == true)
                 {
-                    bool res = checkAnswer();
-                    if (res == true)
-                    {                       
-                        responseReceivedCount++;
-                        responseReceivedLabel.Content = responseReceivedCount.ToString() + " / " + allAnswerCount.ToString();
-                        correctAnswerCount++;
-                    }
-                    else
-                    {
-                        responseReceivedCount++;
-                        responseReceivedLabel.Content = responseReceivedCount.ToString() + " / " + allAnswerCount.ToString();
-                    }
-                    if (count == resultTable.Rows.Count - 1)
-                    {
-                        count++;
-                    }
-                    else if(count< resultTable.Rows.Count - 1)
-                    {
-                        count++;
-                        testUserControl.questionsData(nameTopic, resultTable, count);
-                    }
-                   
+                    correctAnswerCount++;
+                }
+
+                if (count < resultTable.Rows.Count - 1)
+                {
+                    count++;
+                    testUserControl.questionsData(nameTopic, resultTable, count);
                 }
                 else
                 {
-                    responseReceivedLabel.Content = allAnswerCount.ToString() + " / " + allAnswerCount.ToString();
+                    using(SqlConnection conn = new SqlConnection(MainWindow.ConnStrA))
+                    {
+                        conn.Open();
+                        string proc = "dbo.addResultTest";
+                        SqlCommand command = new SqlCommand(proc, conn);
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.Add(new SqlParameter("@login", MainWindow.loginUser));
+                        command.Parameters.Add(new SqlParameter("@testName", nameTopic));
+                        command.Parameters.Add(new SqlParameter("@result", correctAnswerCount));
+
+                        command.ExecuteScalar();
+                    }
+
                     MessageBox.Show("Тест пройден. Результат " + correctAnswerCount + " из " + allAnswerCount);
-
                 }
-
             }           
           
         }
-
 
         public bool checkAnswer()
         {
@@ -161,17 +153,5 @@ namespace ProjectCoder.View
             return result;
         }
 
-        ///// <summary>
-        ///// проверка правильности ответа
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //private void check_Click(object sender, RoutedEventArgs e)
-        //{
-        //    answer = resultTable.Rows[count][2].ToString();
-        //    string response = testUserControl.responseForVerification(answer);
-        //    if (response == answer) MessageBox.Show("Правильный ответ");
-        //    else MessageBox.Show("Ошибка");
-        //}
     }
 }

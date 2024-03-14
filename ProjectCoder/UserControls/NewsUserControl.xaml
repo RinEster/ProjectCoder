@@ -5,15 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectCoder.UserControls"
              mc:Ignorable="d" 
-             MinHeight="100" Width="300">
-    <Border Background="#ababe3" CornerRadius="10">
+             MinHeight="100" Width="370">
+    <Border Background="#d7d4e7" CornerRadius="10">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
-            <TextBlock Margin="10" Grid.Row="0" x:Name="newsTextBlock" FontSize="14" FontFamily="Roboto" TextWrapping="Wrap"/>
-            <TextBlock HorizontalAlignment="Right" Margin="0 0 10 0" Grid.Row="1" x:Name="dateTextBlock" FontFamily="Roboto" TextWrapping="Wrap" />
+            <TextBlock Margin="10" Grid.Row="0" x:Name="newsTextBlock" FontSize="16" FontFamily="Roboto" TextWrapping="Wrap" Foreground="#6c6883"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0 0 10 0" Grid.Row="1" x:Name="dateTextBlock" FontFamily="Roboto" TextWrapping="Wrap" Foreground="#6c6883" />
         </Grid>
             
     </Border>

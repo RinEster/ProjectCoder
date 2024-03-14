@@ -15,21 +15,18 @@
             <Setter Property="FontSize" Value="20"/>
         </Style>
     </UserControl.Resources>
-    <Grid  >
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#606E8C" Offset="0.0"/>
-                <GradientStop Color="#3E5F8A" Offset="1.0"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+    <Grid Background="White">       
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Margin="15 0 0 0" FontSize="24" Text="Курсы" Style="{StaticResource font_style}"/>
-        <Border  Grid.Row="1" Margin="10" Background="#ababe3" CornerRadius="10">
+        <TextBlock Grid.Row="0"
+                   Margin="15 0 0 0" FontSize="26" 
+                   Foreground="#674188"
+                   Text="Курсы" Style="{StaticResource font_style}" TextDecorations="{x:Null}"/>
+        <Border  Grid.Row="1" Margin="10" Background="#d7d4e7" CornerRadius="10">
             <Grid x:Name="courses">
-                <TreeView FontFamily="Roboto" Foreground="White" FontSize="16"  SelectedItemChanged="treeView_SelectedItemChanged"  x:Name="treeView"/>
+                <TreeView FontFamily="Roboto" Foreground="#674188" FontSize="16"  SelectedItemChanged="treeView_SelectedItemChanged"  x:Name="treeView"/>
 
             </Grid>
         </Border>     

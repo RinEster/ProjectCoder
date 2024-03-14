@@ -39,7 +39,7 @@ namespace ProjectCoder.View
                 }
             }
             loadingStudiedLessons();
-
+            testUser();
 
         }
         public void loadingStudiedLessons()
@@ -62,6 +62,29 @@ namespace ProjectCoder.View
                 }
             }       
                               
+        }
+
+        public void testUser()
+        {
+            using (SqlConnection connection = new SqlConnection(MainWindow.ConnStrA))
+            {
+                connection.Open();
+
+                string proc = "dbo.resultUser";
+                SqlCommand command = new SqlCommand(proc, connection);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                command.Parameters.Add(new SqlParameter("@login", MainWindow.loginUser));
+
+                SqlDataReader reader = command.ExecuteReader();
+                while(reader.Read())
+                {
+                    test.Items.Add(reader.GetValue(0).ToString());
+                    testResult.Items.Add(reader.GetValue(1).ToString());
+                }
+
+            }
+
         }
     }
 }
