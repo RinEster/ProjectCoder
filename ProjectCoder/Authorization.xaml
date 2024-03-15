@@ -171,7 +171,7 @@
                      FontFamily="SemiBold"
                      CaretBrush="Black"
                      HorizontalAlignment="Center" 
-                     Height="40" Margin="60,99,60,0"
+                     Height="40" Margin="60,82.985,60,0"
                      TextWrapping="Wrap"
                      VerticalAlignment="Top" Width="220" 
                      BorderBrush="#ababe3" 
@@ -188,7 +188,7 @@
             <TextBox x:Name="passRegPassBox" 
                      materialDesign:HintAssist.Hint="Пароль"
                      materialDesign:HintAssist.FloatingOffset="0,-20"
-                     HorizontalAlignment="Center"  Margin="60,144.333,60,0" 
+                     HorizontalAlignment="Center"  Margin="60,127.985,60,0" 
                      Height="40" 
                      TextWrapping="Wrap" 
                      VerticalAlignment="Top" Width="220" 
@@ -207,7 +207,7 @@
 
             <Button Content="Зарегистрироваться"     
                    
-                    Margin="60 250 60 0" 
+                    Margin="60,217.985,60,0" 
                     VerticalAlignment="Top" 
                     Width="220"
                     FontFamily="SemiBold" 
@@ -217,13 +217,14 @@
                     Height="50"
                     x:Name="regButton"
                     Click="regButton_Click"/>
+            <TextBlock MouseDown="exitReg_MouseDown"  x:Name="exitReg" Foreground="#BF000000" TextDecorations="Underline" Text="Вход" HorizontalAlignment="Center" Width="50" Height="30" FontSize="14" RenderTransformOrigin="0.5,4.617" Margin="145,272.985,145,16.015" />
 
 
             <TextBox x:Name="passRegRepPassBox" 
                      materialDesign:HintAssist.Hint="Повторите пароль"
                      materialDesign:HintAssist.FloatingOffset="0,-20"
                      HorizontalAlignment="Center"  
-                     Height="40"   Margin="60,189.733,60,0" 
+                     Height="40"   Margin="60,172.985,60,0" 
                      TextWrapping="Wrap" 
                      VerticalAlignment="Top" Width="220" 
                      BorderBrush="#ababe3" Background="{x:Null}" 

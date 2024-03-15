@@ -133,15 +133,19 @@ namespace ProjectCoder
         private void regButton_Click(object sender, RoutedEventArgs e)
         {
 
-            inputValidation(loginRegTextBox.Text, passRegPassBox.Text, passRegRepPassBox.Text);
+            bool res = inputValidation(loginRegTextBox.Text, passRegPassBox.Text, passRegRepPassBox.Text);
+            if(res==true)
+            {
             loginUser = loginRegTextBox.Text;
             HomeWindow homeWindow = new HomeWindow();
             homeWindow.Show();
             Close();
+            }
+            
         }
 
 
-        private void inputValidation(string login, string password, string dpassword)
+        private bool inputValidation(string login, string password, string dpassword)
         {
             string patternPass = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])\S{8,20}$"; //В пароле должна быть минимум одна цифра, одна буква(английская), большая буква и любой знак, который не цифра и не буква, максимальная длина пароля 16 символов.(И пробелы нельзя)            
             string patternLog = @"^[a-zA-Z][a-zA-Z0-9_-]{10,50}$"; //первый символ обязательно буква, можно исп латиницу, цифры,девис и подчеркивание
@@ -150,16 +154,31 @@ namespace ProjectCoder
             {
                 check = false;              
                 loginRegTextBox.ToolTip = "Это поле обязательно для заполнения";
+                loginRegTextBox.Background = Brushes.Coral;
+            }
+            else
+            {
+                loginRegTextBox.Background = Brushes.Transparent;
             }
             if (password.Length == 0)
             {
                 check = false;
-                passRegPassBox.ToolTip = "Это поле обязательно для заполнения";                
+                passRegPassBox.ToolTip = "Это поле обязательно для заполнения";
+                passRegPassBox.Background = Brushes.Coral;
+            }
+            else
+            {
+                passRegPassBox.Background = Brushes.Transparent;
             }
             if (dpassword.Length == 0)
             {
                 check = false;
                 passRegRepPassBox.ToolTip = "Это поле обязательно для заполнения";
+                passRegRepPassBox.Background = Brushes.Coral;
+            }
+            else
+            {
+                passRegRepPassBox.Background = Brushes.Transparent;
             }
 
 
@@ -168,11 +187,21 @@ namespace ProjectCoder
             {
                 check = false;
                 loginRegTextBox.ToolTip = "Разрешенные символы: \ncтрочные/заглавные буквы латинского алфавита,\nцифры от 0 до 9 \nдефис и подчеркивания.\n Логин должен быть не менее 10 и не более 50 символов.";
+                loginRegTextBox.Background = Brushes.Coral;
+            }
+            else
+            {
+                loginRegTextBox.Background = Brushes.Transparent;
             }
             if (!Regex.IsMatch(password, patternPass))
             {
                 check = false;
                 passRegPassBox.ToolTip = "В пароле должна быть минимум одна цифра,\nодна буква(английская), большая буква и любой знак,\nкоторый не цифра и не буква, максимальная длина пароля 20 символов.\nМинимальная длина пароля 8 символов.\nТак же в пароле не может быть пробелов.";
+                passRegPassBox.Background = Brushes.Coral;
+            }
+            else
+            {
+                passRegPassBox.Background = Brushes.Transparent;
             }
 
             if(password!=dpassword)
@@ -180,12 +209,23 @@ namespace ProjectCoder
                 check = false;
                 passRegPassBox.ToolTip = "Пароли должны совпадать";
                 passRegRepPassBox.ToolTip = "Пароли должны совпадать";
+                passRegPassBox.Background = Brushes.Coral;
+                passRegRepPassBox.Background = Brushes.Coral;
+            }
+            else
+            {
+                passRegRepPassBox.Background = Brushes.Transparent;
             }
 
             if (check == true)
             {
                 
                 registrationUser(login, password);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -227,5 +267,11 @@ namespace ProjectCoder
 
         }
 
+        private void exitReg_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            MainWindow mainWindow1 = new MainWindow();
+            mainWindow1.Show();
+            this.Close();
+        }
     }
 }
