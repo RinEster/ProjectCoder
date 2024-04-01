@@ -108,6 +108,9 @@
     <Compile Include="ViewModel\NavigationVM.cs" />
     <Compile Include="ViewModel\SettingsVM.cs" />
     <Compile Include="ViewModel\UserVM.cs" />
+    <Compile Include="View\CodeEditor.xaml.cs">
+      <DependentUpon>CodeEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Courses.xaml.cs">
       <DependentUpon>Courses.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Utilities\DataTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CodeEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -248,7 +255,6 @@
     <Resource Include="Assets\progr3128.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\progr164.png" />
     <Resource Include="Assets\laptopcoding64.png" />
     <Resource Include="Assets\code100.png" />
     <Resource Include="Assets\programming100.png" />
@@ -265,6 +271,7 @@
     <Resource Include="Assets\securecomputer64.png" />
     <Resource Include="Assets\binarycode64 %281%29.png" />
     <Resource Include="Assets\user80.png" />
+    <Resource Include="Assets\progr32.png" />
     <Content Include="News.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -98,6 +98,14 @@ namespace ProjectCoder
             tests.Margin = new Thickness(0, 0, -535, 0);
             Pages.Children.Add(tests);
         }
+
+        private void codeButton_Click(object sender, RoutedEventArgs e)
+        {
+            CodeEditor codeEditor = new CodeEditor();
+            codeEditor.Width = 535;
+            codeEditor.Margin = new Thickness(0, 0, -535, 0);
+            Pages.Children.Add(codeEditor);
+        }
     }
    
     
