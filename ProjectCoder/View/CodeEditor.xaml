@@ -19,13 +19,16 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0"
                    Margin="15 0 0 0" FontSize="26" 
                    Foreground="#674188"
                    Text="Редактор кода" Style="{StaticResource font_style}" TextDecorations="{x:Null}"/>
         <Border  Grid.Row="1" Margin="10" Background="#d7d4e7" >
-            <RichTextBox />
+            <!--сделать несколько вкладок, 1 вкладка - одно задание, кнопка проверить--> 
+            <RichTextBox x:Name="newProject" />
         </Border>
+        <Button x:Name="check" Click="check_Click" Content="Сверить" Grid.Row="2"/>
     </Grid>
 </UserControl>

@@ -23,51 +23,51 @@ namespace ProjectCoder.View
     /// </summary>
     public partial class Home : UserControl
     {
-        //string connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=News;" +
-        //    "Integrated Security=True; AttachDbFilename = |DataDirectory|\\News.mdf";
+        string connStr = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=News;" +
+            "Integrated Security=True; AttachDbFilename = |DataDirectory|\\News.mdf";
 
-        //string newsData = "Select News, NewsDate from News";
+        string newsData = "Select News, NewsDate from News";
 
-        //List<KeyValuePair<string, DateTime>> NewsDateList = new List<KeyValuePair<string, DateTime>>();
+        List<KeyValuePair<string, DateTime>> NewsDateList = new List<KeyValuePair<string, DateTime>>();
 
-        //string newsString;
-        //DateTime newsDateTime;
+        string newsString;
+        DateTime newsDateTime;
 
         public Home()
         {
             InitializeComponent();
-            //welcomeTextBlock.Text += MainWindow.loginUser + " !";
-            ////заполнение новостей
-            //DataSet ds1 = new DataSet();
-            //using (SqlConnection connection1 = new SqlConnection(connStr))
-            //{
-            //    connection1.Open();
+            welcomeTextBlock.Text += MainWindow.loginUser + " !";
+            //заполнение новостей
+            DataSet ds1 = new DataSet();
+            using (SqlConnection connection1 = new SqlConnection(connStr))
+            {
+                connection1.Open();
 
-            //    SqlDataAdapter dataAdapter = new SqlDataAdapter(newsData, connStr);
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(newsData, connStr);
 
-            //    dataAdapter.Fill(ds1, "News"); //заполнение dataset
+                dataAdapter.Fill(ds1, "News"); //заполнение dataset
 
-            //    foreach (DataRow row in ds1.Tables[0].Rows) //перенос данных в список
-            //    {
-            //        NewsDateList.Insert(0, new KeyValuePair<string, DateTime>(Convert.ToString(row["News"]), Convert.ToDateTime(row["NewsDate"])));
-            //    }
+                foreach (DataRow row in ds1.Tables[0].Rows) //перенос данных в список
+                {
+                    NewsDateList.Insert(0, new KeyValuePair<string, DateTime>(Convert.ToString(row["News"]), Convert.ToDateTime(row["NewsDate"])));
+                }
 
 
-            //    if (NewsDateList != null)
-            //    {
-            //        foreach (var keyValues in NewsDateList) //запонение данными usercontrol
-            //        {
-            //            NewsUserControl us = new NewsUserControl();
-            //            us.Margin = new Thickness(5, 5, 5, 5);
-            //            newsString = keyValues.Key.ToString();
-            //            newsDateTime = keyValues.Value;
-            //            us.newsTextBlock.Text = newsString;
-            //            us.dateTextBlock.Text = newsDateTime.ToString("dd/MM/yyyy");
-            //            news.Children.Add(us);
-            //        }
-            //    }
+                if (NewsDateList != null)
+                {
+                    foreach (var keyValues in NewsDateList) //запонение данными usercontrol
+                    {
+                        NewsUserControl us = new NewsUserControl();
+                        us.Margin = new Thickness(5, 5, 5, 5);
+                        newsString = keyValues.Key.ToString();
+                        newsDateTime = keyValues.Value;
+                        us.newsTextBlock.Text = newsString;
+                        us.dateTextBlock.Text = newsDateTime.ToString("dd/MM/yyyy");
+                        news.Children.Add(us);
+                    }
+                }
 
-            //}
+            }
         }
     }
 }

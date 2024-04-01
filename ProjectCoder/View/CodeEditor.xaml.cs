@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProjectCoder.View
 {
@@ -23,6 +14,27 @@ namespace ProjectCoder.View
         public CodeEditor()
         {
             InitializeComponent();
+            string filePath = "TXTFiles\\NewProject.txt"; 
+            string fileContent = File.ReadAllText(filePath); 
+            newProject.Document.Blocks.Clear(); 
+            newProject.AppendText(fileContent); 
+        }
+
+        private void check_Click(object sender, RoutedEventArgs e)
+        {
+            string filePath = "TXTFiles\\NewProject.txt";
+            string fileContent = File.ReadAllText(filePath);
+            TextRange textRange = new TextRange(newProject.Document.ContentStart, newProject.Document.ContentEnd);
+            string richTextBoxContent = textRange.Text;
+
+            if (fileContent == richTextBoxContent)
+            {
+                MessageBox.Show("Содержимое файла совпадает с текстом в RichTextBox.");
+            }
+            else
+            {
+                MessageBox.Show("Содержимое файла не совпадает с текстом в RichTextBox.");
+            }
         }
     }
 }
