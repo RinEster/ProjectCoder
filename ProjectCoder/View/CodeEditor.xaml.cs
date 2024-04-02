@@ -16,15 +16,25 @@ namespace ProjectCoder.View
             InitializeComponent();
             string filePath = "TXTFiles\\NewProject.txt"; 
             string fileContent = File.ReadAllText(filePath); 
-            newProject.Document.Blocks.Clear(); 
-            newProject.AppendText(fileContent); 
+            newProject1.Document.Blocks.Clear(); 
+            newProject1.AppendText(fileContent);
+            newProject2.Document.Blocks.Clear();
+            newProject2.AppendText(fileContent);
+            newProject3.Document.Blocks.Clear();
+            newProject3.AppendText(fileContent);
         }
 
         private void check_Click(object sender, RoutedEventArgs e)
         {
+            checkCode(newProject1.Document.ContentStart, newProject1.Document.ContentEnd);
+           
+        }
+
+        void checkCode(TextPointer projectStart, TextPointer projectEnd)
+        {
             string filePath = "TXTFiles\\NewProject.txt";
             string fileContent = File.ReadAllText(filePath);
-            TextRange textRange = new TextRange(newProject.Document.ContentStart, newProject.Document.ContentEnd);
+            TextRange textRange = new TextRange(projectStart, projectEnd);
             string richTextBoxContent = textRange.Text;
 
             if (fileContent == richTextBoxContent)

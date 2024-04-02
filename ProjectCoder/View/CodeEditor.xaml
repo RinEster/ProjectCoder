@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ProjectCoder.View"
              mc:Ignorable="d" 
-        d:DesignHeight="550" d:DesignWidth="535" Background="Transparent">
+        d:DesignHeight="600" d:DesignWidth="535" Background="Transparent">
     <UserControl.Resources>
         <Style x:Key="font_style" TargetType="TextBlock">
             <Setter Property="FontFamily" Value="Fonts/Roboto-Light.ttf #Roboto"/>
@@ -14,21 +14,106 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontSize" Value="20"/>
         </Style>
+
+        <Style x:Key="TabItemStyle" TargetType="TabItem">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#674188"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Margin" Value="5 5"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Padding" Value="15 15"/>
+            <Setter Property="FontWeight" Value="400"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Grid SnapsToDevicePixels="True">
+                            <Border CornerRadius="5"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Margin="{TemplateBinding Margin}"/>
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"
+                                              SnapsToDevicePixels="True"
+                                              RecognizesAccessKey="True"
+                                              Margin="{TemplateBinding Padding}"
+                                              ContentSource="Header"
+                                              Focusable="False"/>
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background"
+                                        Value="#BBC1D1"/>
+                                <Setter Property="Foreground" Value="Gray"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background"
+                                        Value="#ababe3"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
     <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0"
                    Margin="15 0 0 0" FontSize="26" 
                    Foreground="#674188"
                    Text="Редактор кода" Style="{StaticResource font_style}" TextDecorations="{x:Null}"/>
-        <Border  Grid.Row="1" Margin="10" Background="#d7d4e7" >
-            <!--сделать несколько вкладок, 1 вкладка - одно задание, кнопка проверить--> 
-            <RichTextBox x:Name="newProject" />
-        </Border>
-        <Button x:Name="check" Click="check_Click" Content="Сверить" Grid.Row="2"/>
+        <StackPanel  Grid.Row="1">               
+            <TabControl  HorizontalAlignment="Center" Background="#ababe3" Height="490" Width="510">
+                <TabItem Header="Задача 1" Style="{DynamicResource TabItemStyle}">
+                    <Grid Background="#DEDDEE">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock TextWrapping="Wrap" FontSize="15" Foreground="#674188" Text="Напишите консольную программу, в которую пользователь вводит с клавиатуры два числа. А программа должна выводить на консоль сумму двух введеных чисел." />
+                        <RichTextBox FontSize="14" Grid.Row="1" x:Name="newProject1" Foreground="#674188"  />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Задача 2" Style="{DynamicResource TabItemStyle}">
+                    <Grid Background="#DEDDEE">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock TextWrapping="Wrap" FontSize="15" Foreground="#674188" Text="Напишите консольную программу, в которую пользователь вводит с клавиатуры два числа. А программа должна выводить на консоль большее число (в программе использовать if-else)" />
+                        <RichTextBox FontSize="14" Grid.Row="1" x:Name="newProject2" Foreground="#674188" />
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Задача 3" Style="{DynamicResource TabItemStyle}">
+                    <Grid Background="#DEDDEE">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock TextWrapping="Wrap" FontSize="15" Foreground="#674188" Text="Напишите консольную программу, в которую пользователь вводит с клавиатуры два числа - a и b. А программа должна выводить на консоль все числа начиная от a, и заканчивая b (в программе использовать for)" />
+                        <RichTextBox FontSize="14" Grid.Row="1" x:Name="newProject3" Foreground="#674188" />
+                    </Grid>
+                </TabItem>              
+            </TabControl>          
+        </StackPanel>      
+        <Button x:Name="check" Click="check_Click" Content="Проверить решение" 
+                   FontFamily="SemiBold" 
+                        FontSize="20"
+                        Foreground="White" 
+                        Background="#ababe3" 
+                        BorderThickness="0" 
+                        Width="250" Height="50"
+                        Margin="5"
+                        Grid.Row="2"/>
     </Grid>
 </UserControl>
