@@ -42,6 +42,10 @@ namespace ProjectCoder.View
             testUser();
 
         }
+
+        /// <summary>
+        /// все пройденные пользователем лекции
+        /// </summary>
         public void loadingStudiedLessons()
         {
             using (SqlConnection connection = new SqlConnection(MainWindow.ConnStrA))
@@ -63,7 +67,9 @@ namespace ProjectCoder.View
             }       
                               
         }
-
+        /// <summary>
+        /// все пройденные пользователем тесты
+        /// </summary>
         public void testUser()
         {
             using (SqlConnection connection = new SqlConnection(MainWindow.ConnStrA))

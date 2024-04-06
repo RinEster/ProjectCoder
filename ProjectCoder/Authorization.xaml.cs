@@ -104,15 +104,6 @@ namespace ProjectCoder
             }
 
         }
-
-        //private void Timer_Tick(object sender, EventArgs e)
-        //{
-        //    timer.Stop();
-        //    HomeWindow homeWindow = new HomeWindow();
-        //    homeWindow.Show();
-        //    Close();
-        //}
-
       
         private void exit_MouseDown(object sender, MouseButtonEventArgs e)
         {

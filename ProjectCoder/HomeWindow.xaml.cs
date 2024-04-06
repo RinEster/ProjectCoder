@@ -35,6 +35,7 @@ namespace ProjectCoder
                 Close();
             }
         }
+
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
         {          
 

@@ -14,12 +14,25 @@ namespace ProjectCoder.View
         public CodeEditor()
         {
             InitializeComponent();
-            string filePath = "TXTFiles\\NewProject.txt"; 
-            string fileContent = File.ReadAllText(filePath); 
-            newProject.Document.Blocks.Clear(); 
+            loadCodeEditor();
+        }
+
+        /// <summary>
+        /// отображение примера кода в элементе RichTextBox
+        /// </summary>
+        void loadCodeEditor()
+        {
+            string filePath = "TXTFiles\\NewProject.txt";
+            string fileContent = File.ReadAllText(filePath);
+            newProject.Document.Blocks.Clear();
             newProject.AppendText(fileContent);
         }
 
+        /// <summary>
+        /// кнопка проверки решения задачи
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void check_Click(object sender, RoutedEventArgs e)
         {
             switch (task)
@@ -53,13 +66,15 @@ namespace ProjectCoder.View
                     string task7 = "TXTFiles\\task7.txt";
                     checkCode(newProject.Document.ContentStart, newProject.Document.ContentEnd, task7);
                     break;
-
-            }
-
-
-           
+            }           
         }
 
+        /// <summary>
+        /// метод, проверяющий решение задачи
+        /// </summary>
+        /// <param name="projectStart">начальная точка документа</param>
+        /// <param name="projectEnd">конечная точка документа</param>
+        /// <param name="filePath">путь к документу</param>
         void checkCode(TextPointer projectStart, TextPointer projectEnd,string filePath)
         {            
             string fileContent = File.ReadAllText(filePath);
@@ -73,12 +88,21 @@ namespace ProjectCoder.View
             
         }
       
-
+        /// <summary>
+        /// чекбокс, отвечающий за отображение задач
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkTask_Checked(object sender, RoutedEventArgs e)
         { 
             taskListView.Visibility = Visibility.Visible;          
         }
 
+        /// <summary>
+        /// чекбокс, отвечающий за скрытие задач
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkTask_Unchecked(object sender, RoutedEventArgs e)
         {
             taskListView.Visibility = Visibility.Hidden;
@@ -86,9 +110,16 @@ namespace ProjectCoder.View
             richGrid.Height = 430;
         }
 
+        /// <summary>
+        /// номер задачи
+        /// </summary>
         public string task;
 
-        
+        /// <summary>
+        /// текст задач
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void taskListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selected = (sender as ListView).SelectedItem;
@@ -111,13 +142,13 @@ namespace ProjectCoder.View
                     taskTextBlock.Text = "Напишите программу, которая запрашивает число у пользователя и сообщает, является ли оно четным или нечетным.";
                     break;
                 case "5":
-                    taskTextBlock.Text = "Напишите программу, которая запрашивает длину и ширину прямоугольника, а затем выводит его площадь.";
+                    taskTextBlock.Text = "Напишите программу, которая запрашивает длину a и ширину b прямоугольника, а затем выводит его площадь.";
                     break;
                 case "6":
-                    taskTextBlock.Text = "Напишите программу, которая проверяет, является ли введенное пользователем число простым.";
+                    taskTextBlock.Text = "Напишите консольную программу, которая запрашивает у пользователя целые числа до тех пор, пока пользователь не введет число 0. После этого программа должна вывести сумму всех введенных чисел.";
                     break;
                 case "7":
-                    taskTextBlock.Text = "Напишите программу, которая сортирует массив целых чисел { 1, 12, 31, 5, 23 } по возрастанию ";
+                    taskTextBlock.Text = "Напишите программу, которая сортирует массив целых чисел { 1, 12, 31, 5, 23 } по возрастанию (наиболее простым способом и вывод массива с помощью foreach)";
                     break;               
 
             }
