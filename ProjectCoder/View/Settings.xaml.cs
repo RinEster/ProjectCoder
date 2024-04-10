@@ -131,27 +131,33 @@ namespace ProjectCoder.View
             if (passTextBox.Text=="")
             {
                 passTextBox.ToolTip = "Это поле обязательно при изменении пароля";
+                passTextBox.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9EB4"));
                 check = false;
             }
             if (newPassTextBox.Text == "")
             {
                 newPassTextBox.ToolTip = "Это поле обязательно при изменении пароля";
+                newPassTextBox.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9EB4"));
                 check = false;
             }
             if (repNewPassTextBox.Text == "")
             {
                 repNewPassTextBox.ToolTip = "Это поле обязательно при изменении пароля";
+                repNewPassTextBox.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9EB4"));
                 check = false;
             }
             if (!Regex.IsMatch(newPassTextBox.Text, patternPass))
             {
                 newPassTextBox.ToolTip = "В пароле должна быть минимум одна цифра,\nодна буква(английская), большая буква и любой знак,\nкоторый не цифра и не буква, максимальная длина пароля 20 символов.\nМинимальная длина пароля 8 символов.\nТак же в пароле не может быть пробелов.";
+                newPassTextBox.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9EB4"));
                 check = false;
             }
             if (newPassTextBox.Text!=repNewPassTextBox.Text)
             {
                 newPassTextBox.ToolTip = "Пароли должны совпадать";
                 repNewPassTextBox.ToolTip = "Пароли должны совпадать";
+                newPassTextBox.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9EB4"));
+                repNewPassTextBox.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9EB4"));
                 check = false;
             }
 

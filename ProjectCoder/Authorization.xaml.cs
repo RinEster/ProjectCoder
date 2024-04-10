@@ -85,10 +85,7 @@ namespace ProjectCoder
                 var reader = (Int32)command.ExecuteScalar();
                 if (reader != 0)
                 {
-                    loginUser = login;
-                    //timer.Interval = TimeSpan.FromSeconds(0.5);
-                    //timer.Tick += Timer_Tick;
-                    //timer.Start();
+                    loginUser = login;             
                     HomeWindow homeWindow = new HomeWindow();
                     homeWindow.Show();
                     Close();
