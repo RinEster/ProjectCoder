@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using ProjectCoder.Utilities;
 
 namespace ProjectCoder
 {
@@ -40,6 +41,9 @@ namespace ProjectCoder
             string password = passwordPassBox.Password.Trim();         
             if (login != "" && password != "")
             {
+                encriptionXOR encriptionXOR = new encriptionXOR();
+                var encryptedMessageByPass = encriptionXOR.Encrypt(password, encriptionXOR.password_key);
+                password = encryptedMessageByPass.ToString();
                 Entrance(login, password);             
             }
             if (login.Length == 0)
@@ -51,10 +55,9 @@ namespace ProjectCoder
             {
                 passwordPassBox.ToolTip = "Введите пароль";
                 passwordPassBox.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9EB4"));
-            }
-        
-            
+            }            
         }
+
         /// <summary>
         /// Авторизация
         /// </summary>
@@ -207,7 +210,9 @@ namespace ProjectCoder
 
             if (check == true)
             {
-                
+                encriptionXOR encriptionXOR = new encriptionXOR();
+                var encryptedMessageByPass = encriptionXOR.Encrypt(password, encriptionXOR.password_key);
+                password = encryptedMessageByPass.ToString();
                 registrationUser(login, password);
                 return true;
             }
@@ -219,7 +224,6 @@ namespace ProjectCoder
 
         private void registrationUser(string login, string pass)
         {
-          //  bool check = true;
             string sqlExpressionEmail = "dbo.RegistrationCheckForAccountAvailability";
 
             using (SqlConnection connection = new SqlConnection(ConnStrA)) 
@@ -250,9 +254,7 @@ namespace ProjectCoder
 
                 string result = resultParameter.Value.ToString();
                 MessageBox.Show(result);
-
             }
-
         }
 
         private void exitReg_MouseDown(object sender, MouseButtonEventArgs e)

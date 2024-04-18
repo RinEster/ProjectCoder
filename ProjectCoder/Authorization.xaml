@@ -176,7 +176,7 @@
                      VerticalAlignment="Top" Width="220" 
                      BorderBrush="#ababe3" 
                      Foreground="#BF000000" 
-                     SelectionBrush="#FF00D7B0" FontSize="16" BorderThickness="0,0,0,2"     
+                     SelectionBrush="#d7d7f2" FontSize="16" BorderThickness="0,0,0,2"     
                      Background="{x:Null}" >
                 <TextBox.Style>
                     <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
@@ -193,7 +193,7 @@
                      TextWrapping="Wrap" 
                      VerticalAlignment="Top" Width="220" 
                      BorderBrush="#ababe3" Background="{x:Null}" 
-                     Foreground="#BF000000" SelectionBrush="#FF00D7B0" 
+                     Foreground="#BF000000" SelectionBrush="#d7d7f2" 
                      FontSize="16" BorderThickness="0,0,0,2">
                 <TextBox.Style>
                     <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
@@ -228,7 +228,7 @@
                      TextWrapping="Wrap" 
                      VerticalAlignment="Top" Width="220" 
                      BorderBrush="#ababe3" Background="{x:Null}" 
-                     Foreground="#BF000000" SelectionBrush="#FF00D7B0" 
+                     Foreground="#BF000000" SelectionBrush="#d7d7f2" 
                      FontSize="16" BorderThickness="0,0,0,2">
                 <TextBox.Style>
                     <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">

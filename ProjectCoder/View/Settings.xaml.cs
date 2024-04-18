@@ -38,10 +38,12 @@ namespace ProjectCoder.View
                 if(!Regex.IsMatch(changeLogin.Text, patternLog))
                 {
                     changeLogin.ToolTip = "Разрешенные символы: \ncтрочные/заглавные буквы латинского алфавита,\nцифры от 0 до 9 \nдефис и подчеркивания.\n Логин должен быть не менее 10 и не более 50 символов.";
+                    changeLogin.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9EB4"));
                 }
                 else
                 {
                     changeUserName(MainWindow.loginUser, changeLogin.Text);
+                    changeLogin.Text = "";
                 }
             }
             if (changeEmail.Text != "")
@@ -49,10 +51,12 @@ namespace ProjectCoder.View
                 if (!Regex.IsMatch(changeEmail.Text, patternPass))
                 {
                     changeEmail.ToolTip = "Разрешены почты yandex, mail, gmail";
+                    changeEmail.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF9EB4"));
                 }
                 else
                 {
                     changeUserEmail(MainWindow.loginUser, changeEmail.Text);
+                    changeEmail.Text = "";
                 }                    
             }
 
